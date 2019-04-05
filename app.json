@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/notfound/notfound",
+    "pages/index0/index0",
+    "pages/user/user",
+    "pages/search/search",
+    "pages/search1/search1",
+    "pages/flightlist/flightlist",
+    "pages/detail/detail",
+    "pages/attension/attension"
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "航班助手",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "color":"#b2b2b2",
+    "selectedColor": "#353535",
+    "borderStyle": "black",
+    "backgroundColor": "#eeeeee",
+    "list":[
+      {
+        "pagePath":"pages/index0/index0",
+        "iconPath":"icons/tab_home_def@2x.png",
+        "selectedIconPath":"icons/tab_home_sel@2x.png",
+        "text":"首页"
+      },
+      {
+        "pagePath":"pages/user/user",
+        "iconPath":"icons/tab_user_def@2x.png",
+        "selectedIconPath":"icons/tab_user_sel@2x.png",
+        "text":"我的"
+      }
+    ]
+  }
+}

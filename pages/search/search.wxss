@@ -1,0 +1,19 @@
+/* pages/search/search.wxss */
+.blank {
+  height: 200rpx;
+}
+
+ .form {
+  position: relative;
+  height: 60px;
+}
+ 
+.dataInput {
+  border: 1px solid #2c3036;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border-radius: 20px;
+  color: black;
+  padding-left: 35px;
+}

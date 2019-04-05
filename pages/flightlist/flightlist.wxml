@@ -1,0 +1,24 @@
+<!-- 
+item {
+  corp_name,
+  flight_code,
+  dep_time_plan,
+  dep_time_act,
+  dep_airp,
+  arri_time_plan,
+  arri_time_act,
+  arri_airp,
+  flight_status
+}
+ -->
+<view wx:if="{{list}}">
+<view wx:for="{{list}}" wx:key="{{index}}">
+  <view> 
+        {{item.corp_name}} {{item.flight_code}}  
+   {{item.dep_time_plan}} {{item.dep_airp}}
+{{item.flight_status}}
+   {{item.arri_time_plan}} {{item.arri_airp}} 
+  </view>
+</view>
+</view>
+<view wx:else>暂无航班信息</view>

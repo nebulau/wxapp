@@ -1,0 +1,11 @@
+<!--pages/index0/index0.wxml-->
+<!-- <image class='background' src="../../imgs/bcg.jpg" mode="aspectFill"></image> -->
+<view class='blank'></view>
+
+<view>
+  <button bindtap='toSearch' class='btn1'>航班查询</button>
+</view>
+
+<view>
+  <button bindtap='toAttension' class='btn2'>关注列表</button>
+</view>

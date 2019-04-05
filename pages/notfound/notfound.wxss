@@ -1,0 +1,13 @@
+/* pages/notfound/notfound.wxss */
+.containerr {
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+  display: flex;
+}
+.item {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: rosybrown;
+  border: 1px solid #fff;
+}

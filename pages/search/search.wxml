@@ -1,0 +1,24 @@
+<!--pages/search/search.wxml-->
+<view class='blank'></view>
+
+<view class="form">
+  <input class='dataInput' bindinput="bindKeyInput" placeholder="航班号：如CA1234" auto-focus />
+</view>
+
+<view class="form">
+  <picker
+    class="dataInput"
+    mode="date"
+    value="{{date}}"
+    start="2000-09-01"
+    end="2030-09-01"
+    bindchange="bindDateChange"
+  >
+    <view class="picker">
+      日期: {{date}}
+    </view>
+  </picker>
+</view>
+
+<button bindtap='toFlightList'>按航班号查询</button>
+<button bindtap='toSearch1'>按起降地查询</button>

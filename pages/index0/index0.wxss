@@ -1,0 +1,27 @@
+/* pages/index0/index0.wxss */
+.blank {
+  height: 400rpx;
+}
+.btn1 {
+  width: 80%;
+  margin-top: 30rpx;
+  background-color: #1AAD19;
+  color: black;
+  border-radius: 98rpx;
+}
+.btn2 {
+  width: 80%;
+  margin-top: 30rpx;
+  background-color: #1AAD19;
+  color: black;
+  border-radius: 98rpx;
+}
+page{
+  height: 100%;
+}
+.background{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-size: 100% 100%;
+}

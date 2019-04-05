@@ -1,0 +1,37 @@
+/* pages/search1/search1.wxss */
+.blank {
+  height: 200rpx;
+}
+.cityfrom{
+  position: left;
+  height: 60px;
+  width: 200px;
+}
+
+.cityto{
+  position: right;
+  height: 60px;
+  width: 200px;
+}
+
+ .cityform {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  display:flex;justify-content:space-around;
+}
+
+ .dateform {
+  position: relative;
+  height: 60px;
+ }
+
+.dataInput {
+  border: 1px solid #2c3036;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border-radius: 20px;
+  color: black;
+  padding-left: 35px;
+}

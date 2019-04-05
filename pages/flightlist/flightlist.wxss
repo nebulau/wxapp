@@ -1,0 +1,14 @@
+.flightitem {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.corporation{
+  font-size: 22;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+}

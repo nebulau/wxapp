@@ -1,0 +1,33 @@
+<!--pages/search1/search1.wxml-->
+<view class='blank'></view>
+<view class='cityform'>
+  <view class="cityfrom">
+    <input class='dataInput' bindinput="bindFromInput" placeholder="From:" auto-focus />
+  </view>
+
+  <view class="cityto">
+    <input class='dataInput' bindinput="bindToInput" placeholder="To:" auto-focus />
+  </view>
+</view>
+
+<view class="dateform">
+  <picker
+    class="dataInput"
+    mode="date"
+    value="{{date}}"
+    start="2000-09-01"
+    end="2030-09-01"
+    bindchange="bindDateChange"
+  >
+    <view class="picker">
+      日期: {{date}}
+    </view>
+  </picker>
+</view>
+
+
+<button bindtap='toSearch'>按航班号查询</button>
+<button bindtap='toFlightList'>按起降地查询</button>
+
+  
+
