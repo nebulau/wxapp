@@ -1,9 +1,15 @@
 /* pages/notfound/notfound.wxss */
-.containerr {
+page {
+  height: 100%;
+}
+.sections {
   height: 100%;
   width: 100%;
   background-color: blue;
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 .item {
   width: 100rpx;

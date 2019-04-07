@@ -5,14 +5,14 @@
 .btn1 {
   width: 80%;
   margin-top: 30rpx;
-  background-color: #1AAD19;
+  background-color: #3385ff;
   color: black;
   border-radius: 98rpx;
 }
 .btn2 {
   width: 80%;
   margin-top: 30rpx;
-  background-color: #1AAD19;
+  background-color: #3385ff;
   color: black;
   border-radius: 98rpx;
 }

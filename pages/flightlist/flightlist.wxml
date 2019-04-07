@@ -12,13 +12,20 @@ item {
 }
  -->
 <view wx:if="{{list}}">
-<view wx:for="{{list}}" wx:key="{{index}}">
-  <view> 
-        {{item.corp_name}} {{item.flight_code}}  
-   {{item.dep_time_plan}} {{item.dep_airp}}
-{{item.flight_status}}
-   {{item.arri_time_plan}} {{item.arri_airp}} 
+  <view wx:for="{{list}}" wx:key="{{index}}">
+      <view class='listitem'>
+        <view class='partl'>
+          <view class='corp'>{{item.corp_name}} {{item.flight_code}}</view>  
+          <view class='info'>
+          {{item.dep_time_plan}} {{item.dep_airp}}
+              {{item.flight_status}}
+              {{item.arri_time_plan}} {{item.arri_airp}} 
+          </view>
+        </view>
+
+        <view class='partr'>关注航班</view>
+      </view>
   </view>
 </view>
-</view>
 <view wx:else>暂无航班信息</view>
+

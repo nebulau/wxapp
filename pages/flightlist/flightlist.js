@@ -30,7 +30,7 @@ Page({
     });
     setTimeout(function () {
       wx.hideLoading()
-    }, 8000);
+    }, 2000);
     
     wx.request({
       url: 'http://114.115.134.119:5000/beta/byFlightNumber',
@@ -39,7 +39,7 @@ Page({
         flightCode: this.data.flightCode,
         cityFrom: this.data.cityFrom,
         cityTo: this.data.cityTo,
-        date: this.data.date
+        date: this.data.date.replace(/-/g, '')
       },
 
       method: "POST",
@@ -52,7 +52,6 @@ Page({
       success(res) {
         console.log(res.data);
         if (res.data) {
-          console.log('a');
           _this.setData({
             list: res.data
           });

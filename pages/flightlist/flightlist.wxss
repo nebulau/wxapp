@@ -1,14 +1,41 @@
-.flightitem {
-  position: relative;
+page {
+  height: 100%;
+}
+.listitem {
+  height: 200rpx;
   display: flex;
-  flex-direction: row;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.iteml {
+  display: flex;
+  flex-flow: column nowrap;
   justify-content: space-between;
 }
-
-.corporation{
-  font-size: 22;
+.corp {  
+  height: 50rpx;
+  background-color: yellow;
+  /* align-items: flex-end; */
+  border: 1px solid #fff;
 }
-.content{
+.info {
+  background-color: burlywood;
+}
+.partl {
+  height: 100rpx;
+  width: 88%;
   display: flex;
-  flex-direction: row;
+  flex-flow: column nowrap;
+  background-color: rosybrown;
 }
+.partr {
+  height: 200rpx;
+  width: 12%;
+  background-color: royalblue;
+  display: flex;
+  align-items: center;
+}
+
+
+  
