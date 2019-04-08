@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/user/user",
     "pages/index0/index0",
     "pages/notfound/notfound",
-    "pages/user/user",
     "pages/search/search",
     "pages/search1/search1",
     "pages/flightlist/flightlist",
