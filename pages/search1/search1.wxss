@@ -1,32 +1,39 @@
 /* pages/search1/search1.wxss */
 .blank {
-  height: 200rpx;
+  height: 400rpx;
 }
 .cityfrom{
-  position: left;
+  margin-left: 0;
+  float:left;
   height: 60px;
-  width: 200px;
+  width: 45%;
 }
 
 .cityto{
-  position: right;
+  margin-right: 0;
+  float: right;
   height: 60px;
-  width: 200px;
+  width: 45%;
 }
 
  .cityform {
   position: relative;
   height: 60px;
-  width: 100%;
-  display:flex;justify-content:space-around;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
  .dateform {
   position: relative;
   height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
  }
 
 .dataInput {
+  width: 80%;
   border: 1px solid #2c3036;
   height: 40px;
   line-height: 40px;
@@ -35,10 +42,12 @@
   color: black;
   padding-left: 35px;
 }
-.btn {
-  width: 80%;
-  margin-top: 30rpx;
-  background-color: #3385ff;
+.fromInput {
+  border: 1px solid #2c3036;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border-radius: 20px;
   color: black;
-  border-radius:  98rpx;
+  padding-left: 35px;
 }

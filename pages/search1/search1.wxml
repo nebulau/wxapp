@@ -1,12 +1,13 @@
 <!--pages/search1/search1.wxml-->
+<image class='background' src="../../imgs/sky.jpg" mode="aspectFill"></image>
 <view class='blank'></view>
 <view class='cityform'>
   <view class="cityfrom">
-    <input class='dataInput' bindinput="bindFromInput" placeholder="From:" auto-focus />
+    <input class='fromInput' bindinput="bindFromInput" placeholder="From:"  />
   </view>
 
   <view class="cityto">
-    <input class='dataInput' bindinput="bindToInput" placeholder="To:" auto-focus />
+    <input class='fromInput' bindinput="bindToInput" placeholder="To:"  />
   </view>
 </view>
 

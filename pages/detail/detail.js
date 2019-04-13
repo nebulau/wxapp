@@ -5,14 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    flight_detailed_info_url:'AAA'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var _this=this;
+    console.log('detail page');
+    this.data.flight_detailed_info_url = getApp().data.flight_detailed_info_url;
+    console.log(this.data.flight_detailed_info_url);
+    wx.request({
+      url: 'http://114.115.134.119:5000/beta/detailedInfo',
+      data: {
+        url: this.data.flight_detailed_info_url
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data);
+        _this.setData({
+          detailInfo:res.data,
+        });
+      }
+    });
   },
 
   /**

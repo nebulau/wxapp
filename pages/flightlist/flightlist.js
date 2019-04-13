@@ -1,4 +1,5 @@
 // pages/list/list.js
+var app=getApp();
 Page({
 
   /**
@@ -41,14 +42,10 @@ Page({
         cityTo: this.data.cityTo,
         date: this.data.date.replace(/-/g, '')
       },
-
       method: "POST",
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json'
       },
-      // header: { 
-      // 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      // },
       success(res) {
         console.log(res.data);
         if (res.data) {
@@ -61,6 +58,9 @@ Page({
             url: '../notfound/notfound',
           })
         }
+      },
+      fail:function() {
+        console.log('fail!');
       }
     })
   },
@@ -112,5 +112,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  toDetail: function(event) {
+    console.log(event.target.dataset.index);
+    var index = event.target.dataset.index;
+    app.data.flight_detailed_info_url=this.data.list[index].flight_detailed_info_url;
+    wx.navigateTo({
+      url: '../detail/detail',
+    })
   }
 })

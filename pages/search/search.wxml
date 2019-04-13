@@ -1,8 +1,9 @@
 <!--pages/search/search.wxml-->
+<image class='background' src="../../imgs/sky.jpg" mode="aspectFill"></image>
 <view class='blank'></view>
 
 <view class="form">
-  <input class='dataInput' bindinput="bindKeyInput" placeholder="航班号：如CA1234" auto-focus />
+  <input class='dataInput' bindinput="bindKeyInput" placeholder="航班号：如CA1234"  />
 </view>
 
 <view class="form">

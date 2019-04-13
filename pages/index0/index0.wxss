@@ -2,26 +2,17 @@
 .blank {
   height: 400rpx;
 }
-.btn1 {
-  width: 80%;
+.btn {
   margin-top: 30rpx;
-  background-color: #3385ff;
-  color: black;
-  border-radius: 98rpx;
-}
-.btn2 {
-  width: 80%;
-  margin-top: 30rpx;
-  background-color: #3385ff;
-  color: black;
-  border-radius: 98rpx;
+  margin-bottom: 40rpx;
+  width: 480rpx;
+  height: 80rpx;
+  color: #1b65ce;
+  font-size: 30rpx;
+  border: 2rpx solid #1b65ce;
+  border-radius: 35rpx;
+  background-color: transparent;
 }
 page{
   height: 100%;
-}
-.background{
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  background-size: 100% 100%;
 }

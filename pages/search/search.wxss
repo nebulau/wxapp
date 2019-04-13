@@ -1,14 +1,18 @@
 /* pages/search/search.wxss */
 .blank {
-  height: 200rpx;
+  height: 400rpx;
 }
 
  .form {
   position: relative;
   height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
  
 .dataInput {
+  width: 80%;
   border: 1px solid #2c3036;
   height: 40px;
   line-height: 40px;
@@ -17,11 +21,5 @@
   color: black;
   padding-left: 35px;
 }
-.btn {
-  width: 80%;
-  margin-top: 30rpx;
-  background-color: #3385ff;
-  color: black;
-  border-radius:  98rpx;
-}
+
 

@@ -1,0 +1,45 @@
+/* pages/user/user.wxss */
+page {
+    height: 100%;
+}
+.blank {
+  height: 400rpx;
+}
+.user {
+  padding: 10rpx 0;
+  width: 480rpx;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #1b65ce;
+  background: transparent;
+  border-radius: 0;
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+.pwd {
+  padding: 10rpx 0;
+  width: 480rpx;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #1b65ce;
+  background: transparent;
+  border-radius: 0;
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+.forget-pwd {
+  color: royalblue;
+  text-align: right;
+  margin: 0 auto 40rpx;
+  width: 480rpx;
+  z-index: 99;
+}
+.register {
+  color: rebeccapurple;
+  text-align: right;
+  margin: 0 auto 20rpx;
+  width: 480rpx;
+  z-index: 99;
+}

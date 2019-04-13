@@ -1,5 +1,10 @@
 //app.js
 App({
+  data:{
+    flight_detailed_info_url:'',
+    isLoggedIn:false,
+    usrId:''
+  },
   onLaunch(options) {
     // Do something initial when launch.
   },

@@ -1,2 +1,4 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view wx:for='{{detailInfo.airp_datas}}' wx:for-index='key' wx:key='item'>
+{{key}}: {{value.address}}
+</view>
