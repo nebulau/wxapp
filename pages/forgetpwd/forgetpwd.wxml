@@ -1,2 +1,6 @@
 <!--pages/forgetpwd/forgetpwd.wxml-->
-<text>pages/forgetpwd/forgetpwd.wxml</text>
+<image class='background' src="../../imgs/sky.jpg" mode="aspectFill"></image>
+<view class='blank'></view>
+<view class="user"><input placeholder="请输入您的账号" id='user' bindinput="bindUser" /></view>
+<view class="user"><input placeholder="请输入您的邮箱" id='user' bindinput="bindEmail" /></view>
+<view class="user"><input placeholder="验证码" id='user' bindinput="bindEmail" /></view>

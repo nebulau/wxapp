@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    username:'',
+    password:'',
+    pwdtwice:'',
+    email:''
   },
 
   /**
@@ -62,5 +65,43 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  bindUser: function(e) {
+    this.setData({
+      username:e.detail.value
+    });
+  },
+  bindPwd: function(e) {
+    this.setData({
+      password:e.detail.value
+    });
+  },
+  bindPwdTwice: function(e) {
+    this.setData({
+      pwdtwice:e.detail.value
+    });
+  },
+  bindEmail: function(e) {
+    this.setData({
+      email:e.detail.value
+    });
+  },
+  register: function() {
+    var _this=this;
+    wx.request({
+      url: 'http://114.115.134.119:5000/beta/register',
+      data: {
+        username: this.data.username,
+        password: this.data.password,
+        email: this.data.email
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data);
+      }
+    })
   }
 })

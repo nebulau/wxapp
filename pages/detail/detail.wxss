@@ -1,1 +1,54 @@
 /* pages/detail/detail.wxss */
+page {
+  height: 100%;
+}
+.corpandstatus {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.flightinfo {
+  background-color: rgb(172, 106, 106);
+}
+.distanceinfo {
+  display: flex;
+  justify-content: center;
+}
+.pathinfo {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.planeinfo {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.ontime {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.preflight {
+  display: flex;
+  justify-content: center;
+}
+.nofound {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.airport {
+  background-color: #eeeeee;
+  margin: 30rpx;
+}

@@ -3,7 +3,7 @@
 <view class='blank'></view>
 
 <view class="form">
-  <input class='dataInput' bindinput="bindKeyInput" placeholder="航班号：如CA1234"  />
+  <input class='dataInput' bindinput="bindKeyInput" placeholder="航班号：如CA1234" focus='true' />
 </view>
 
 <view class="form">

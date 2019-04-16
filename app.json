@@ -1,17 +1,17 @@
 {
   "pages":[
-    "pages/user/user",
     "pages/index0/index0",
+    "pages/forgetpwd/forgetpwd",
     "pages/login/login",
     "pages/search1/search1",
-    
+    "pages/user/user",
     "pages/notfound/notfound",
     "pages/search/search",
     "pages/flightlist/flightlist",
     "pages/detail/detail",
-    "pages/attension/attension",
-    "pages/forgetpwd/forgetpwd",
-    "pages/register/register"
+    "pages/focus/focus",
+    "pages/register/register",
+    "pages/userinfo/userinfo"
   ],
   "window":{
     "backgroundTextStyle":"light",

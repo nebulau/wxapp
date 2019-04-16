@@ -1,0 +1,26 @@
+/* pages/attension/attension.wxss */
+page{
+  height: 100%;
+}
+.nofound {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.itembox {
+  background: #eeeeee;
+  margin: 20rpx;
+  justify-content: space-between;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.focusitem {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.defocus {
+  background-color: blanchedalmond;
+}

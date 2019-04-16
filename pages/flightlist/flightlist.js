@@ -31,7 +31,7 @@ Page({
     });
     setTimeout(function () {
       wx.hideLoading()
-    }, 2000);
+    }, 1000);
     
     wx.request({
       url: 'http://114.115.134.119:5000/beta/byFlightNumber',
@@ -120,5 +120,24 @@ Page({
     wx.navigateTo({
       url: '../detail/detail',
     })
+  },
+  setFocus: function(e) {
+    console.log(e.target.dataset.flight);
+    wx.request({
+      url: 'http://114.115.134.119:5000/beta/focus',
+      data: {
+        username:app.data.username,
+        token:app.data.token,
+        flightCode:e.target.dataset.flight,
+        date: this.data.date.replace(/-/g, '')
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res){
+        console.log(res.data);
+      }
+    });
   }
 })

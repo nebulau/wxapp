@@ -1,1 +1,17 @@
 /* pages/forgetpwd/forgetpwd.wxss */
+.blank {
+  height: 440rpx;
+}
+.user {
+  padding: 10rpx 0;
+  width: 480rpx;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #1b65ce;
+  background: transparent;
+  border-radius: 0;
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+  position: relative;
+  color: black;
+}

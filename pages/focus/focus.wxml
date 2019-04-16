@@ -1,0 +1,17 @@
+<!--pages/attension/attension.wxml-->
+<view wx:if='{{notempty}}'>
+  <view wx:for='{{focuslist}}' wx:key='{{index}}' class='itembox'>
+    <view class='focusitem'>
+      <text>航班: {{item.flightCode}}</text>
+      <text>日期: {{item.date}}</text>
+    </view>
+    <view class='defocus'>
+      <text>取消\n关注</text>
+    </view>
+  </view>
+</view>
+
+<view wx:else class='nofound'>
+  <icon type="info" size="50"></icon>
+  <text>暂无关注航班</text>
+</view>

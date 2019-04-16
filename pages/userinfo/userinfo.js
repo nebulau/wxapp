@@ -1,4 +1,4 @@
-// pages/index0/index0.js
+// pages/userinfo/userinfo.js
 Page({
 
   /**
@@ -62,17 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  toSearch: function(){
-    wx.navigateTo({
-      url: '../search/search',
-    })
-  },
-
-  toAttension: function() {
-    wx.navigateTo({
-      url: '../focus/focus',
-    })
   }
 })

@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    eye:false
+    username:'',
+    password:'',
+    token:''
   },
 
   /**
@@ -63,5 +65,60 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  bindUser: function(e) {
+    this.setData({
+      username: e.detail.value
+    });
+  },
+  bindPwd: function(e) {
+    this.setData({
+      password:e.detail.value
+    });
+  },
+  logIn: function() {
+    var _this=this;
+    console.log(this.data);
+    wx.request({
+      url: 'http://114.115.134.119:5000/beta/login',
+      data: {
+        username: this.data.username,
+        password: this.data.password
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data);
+        if(res.data.statusCode===1){
+          app.data.isLoggedIn = true;
+          app.data.username = _this.data.username;
+          app.data.token = res.data.token;
+          wx.setStorage({
+            key: 'isLoggedIn',
+            data: app.data.isLoggedIn,
+          });
+          wx.setStorage({
+            key: 'username',
+            data: app.data.username,
+          });
+          wx.setStorage({
+            key: 'token',
+            data: app.data.token,
+          });
+          wx.switchTab({
+            url: '../user/user',
+          });
+        }
+        else if(res.data.statusCode==0){
+          wx.showToast({
+            title: '账户密码不正确',
+            icon: 'loading',
+            duration: 300,
+          })
+        }
+      }
+    });
   }
 })

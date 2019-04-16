@@ -3,16 +3,41 @@ App({
   data:{
     flight_detailed_info_url:'',
     isLoggedIn:false,
-    usrId:''
+    username:'',
+    token:''
   },
   onLaunch(options) {
     // Do something initial when launch.
+    var _this=this;
+    wx.getStorage({
+      key: 'isLoggedIn',
+      success: function(res) {
+        console.log(res.data);
+        _this.data.isLoggedIn=res.data;
+      },
+    });
+    wx.getStorage({
+      key: 'username',
+      success: function(res) {
+        console.log(res.data);
+        _this.data.username=res.data;
+      },
+    });
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        console.log(res.data);
+        _this.data.token=res.data;
+      },
+    });
   },
   onShow(options) {
     // Do something when show.
+    
   },
   onHide() {
     // Do something when hide.
+    
   },
   onError(msg) {
     console.log(msg)

@@ -6,7 +6,8 @@ Page({
    */
   data: {
     isLoggedIn:false,
-    usrId:''
+    username:'',
+    token:''
   },
 
   /**
@@ -15,7 +16,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       isLoggedIn:app.data.isLoggedIn,
-      usrId:app.data.usrId
+      username:app.data.username
     });
   },
 
@@ -30,7 +31,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      isLoggedIn:app.data.isLoggedIn,
+      username:app.data.username
+    });
   },
 
   /**
@@ -71,5 +75,44 @@ Page({
     wx.navigateTo({
       url: '../login/login',
     })
+  },
+  toUserInfo: function() {
+    if(!this.data.isLoggedIn) {
+      wx.showToast({
+        title: '请您先登录',
+        icon: 'loading',
+        duration: 2000
+      })
+    }
+    else {
+      wx.navigateTo({
+        url: '../userinfo/userinfo',
+      })
+    }
+  },
+  toAttension: function() {
+    if (!this.data.isLoggedIn) {
+      wx.showToast({
+        title: '请您先登录',
+        icon: 'loading',
+        duration: 2000
+      })
+    }
+    else {
+      wx.navigateTo({
+        url: '../focus/focus',
+      })
+    }
+  },
+  logOut: function() {
+    this.setData({
+      isLoggedIn: false,
+      username:'',
+      token:''
+    });
+    app.data.isLoggedIn=false;
+    app.data.username='';
+    app.data.token='';
+    wx.clearStorage();
   }
 })

@@ -7,7 +7,8 @@
   margin-bottom: 40rpx;
   width: 480rpx;
   height: 80rpx;
-  color: #1b65ce;
+  /* color: #1b65ce; */
+  color: black;
   font-size: 30rpx;
   border: 2rpx solid #1b65ce;
   border-radius: 35rpx;

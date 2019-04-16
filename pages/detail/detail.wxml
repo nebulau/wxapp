@@ -1,4 +1,58 @@
 <!--pages/detail/detail.wxml-->
-<view wx:for='{{detailInfo.airp_datas}}' wx:for-index='key' wx:key='item'>
-{{key}}: {{value.address}}
+<!-- 
+arri_city:"北京"
+ave_ontime_rate:null
+corp_name_and_flight_code:"中国国航 CA1234"
+delay_time_tip:"预计准点"
+dep_city:"克拉玛依"
+flight_distance:"全程2645公里"
+flight_dur_time:"时长3小时55分"
+flight_status:"计划"
+plane_age:"11.3年"
+plane_type:"BOEING737-800 WINGLETS"
+pre_fligt:"前序航班暂未到达"
+ -->
+<view wx:if='{{detailInfo}}'>
+  <view class='flightinfo'>
+    <view class='corpandstatus'>
+      <text>{{detailInfo.corp_name_and_flight_code}}</text>
+      <text>{{detailInfo.flight_status}}</text> 
+    </view>
+    <view class='distanceinfo'>
+      {{detailInfo.flight_distance}}  {{detailInfo.flight_dur_time}}
+    </view>
+    <view class='pathinfo'>
+      <view>{{detailInfo.dep_city}}</view>
+      <text>->->-></text>
+      <image style='width:60rpx;height:60rpx;' src='../../imgs/plane.png'></image>
+      <text>->->-></text>
+      <view>{{detailInfo.arri_city}}</view>
+    </view>
+    <view class='planeinfo'>
+      <text style='font-size:30rpx;'>机型: {{detailInfo.plane_type}}</text>
+      <text style='font-size:30rpx;'>机龄: {{detailInfo.plane_age}}</text>
+    </view>
+    <view class='ontime'>
+      <text style='font-size:30rpx;'>历史准点率: {{detailInfo.ave_ontime_rate}}</text>
+      <text style='font-size:30rpx;'>{{detailInfo.delay_time_tip}}</text>
+    </view>
+    <view class='preflight'>
+      <text style='font-size:30rpx;'>{{detailInfo.pre_fligt}}</text>
+    </view>
+  </view>
+
+  <view wx:for='{{detailInfo.airp_datas}}' wx:key='index' class='airport'>
+    <view>{{index}}</view>
+    <view wx:for='{{item}}' wx:for-index='key' wx:for-item='value' wx:key='key' class='pairsbox'>
+      <view class='pair'>
+        <text>{{key}}:</text>
+        <text style='color:blue;'>{{value}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:else class='nofound'>
+  <icon type="info" size="50"></icon>
+  <text>请等待</text>
 </view>

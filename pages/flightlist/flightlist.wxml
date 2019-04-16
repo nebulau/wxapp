@@ -30,7 +30,7 @@ item {
             </view>
         </view>
         
-        <view class='partr'><text>关注\n\n航班</text></view>
+        <view class='partr'><text data-flight='{{item.flight_code}}' bindtap='setFocus'>关注\n\n航班</text></view>
 
       </view>
   </view>
