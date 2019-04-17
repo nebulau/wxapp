@@ -81,7 +81,7 @@ Page({
       wx.showToast({
         title: '请您先登录',
         icon: 'loading',
-        duration: 2000
+        duration: 200
       })
     }
     else {
@@ -95,7 +95,7 @@ Page({
       wx.showToast({
         title: '请您先登录',
         icon: 'loading',
-        duration: 2000
+        duration: 200
       })
     }
     else {

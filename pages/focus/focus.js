@@ -41,6 +41,12 @@ Page({
             notempty:false
           });
         }
+        if(!app.data.isLoggedIn){
+          console.log('hasn`t loggd in');
+          _this.setData({
+            notempty: false
+          });
+        }
       }
     });
   },

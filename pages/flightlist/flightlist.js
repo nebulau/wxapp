@@ -117,7 +117,7 @@ Page({
     console.log(event.target.dataset.index);
     var index = event.target.dataset.index;
     app.data.flight_detailed_info_url=this.data.list[index].flight_detailed_info_url;
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../detail/detail',
     })
   },
