@@ -1,6 +1,17 @@
 /* pages/airpicker/airpicker.wxss */
+.switch {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
 .item {
-  margin: 5rpx;
-  height: 80rpx;
-  border: 1px solid black;
+  /* margin-top: 3rpx; */
+  /* margin-bottom: 3rpx; */
+  height: 70rpx;
+  border: 1px solid #eeeeee;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  /* justify-content: center; */
 }

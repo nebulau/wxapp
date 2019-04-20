@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/airpicker/airpicker",
     "pages/index0/index0",
     "pages/forgetpwd/forgetpwd",
     "pages/login/login",
@@ -12,7 +13,6 @@
     "pages/focus/focus",
     "pages/register/register",
     "pages/userinfo/userinfo",
-    "pages/airpicker/airpicker",
     "pages/aboutus/aboutus"
   ],
   "window":{
