@@ -1,1 +1,6 @@
 /* pages/airpicker/airpicker.wxss */
+.item {
+  margin: 5rpx;
+  height: 80rpx;
+  border: 1px solid black;
+}

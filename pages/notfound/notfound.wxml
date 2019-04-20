@@ -1,9 +1,6 @@
 <!--pages/notfound/notfound.wxml-->
-<view class='sections'>
-  <view class='item'>
-  1
-  </view>
-  <view class='item'><button>2</button></view>
-  <view class='item'>3</view>
-  <view class='item'>4</view>
+<view class='nofound'>
+  <icon type="info" size="50"></icon>
+  <text class='info'>未查询到相关航班</text>
+  <text class='info'>请您检查航班号和日期是否正确</text>
 </view>

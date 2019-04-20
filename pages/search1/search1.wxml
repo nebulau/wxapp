@@ -3,7 +3,7 @@
 <view class='blank'></view>
 <view class='cityform'>
   <view class="cityfrom">
-    <input class='fromInput' bindinput="bindFromInput" placeholder="From:"  />
+    <input class='fromInput' bindinput="bindFromInput" placeholder="From:"/>
   </view>
 
   <view class="cityto">

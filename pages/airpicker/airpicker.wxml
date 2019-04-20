@@ -1,2 +1,10 @@
 <!--pages/airpicker/airpicker.wxml-->
-<text>pages/airpicker/airpicker.wxml</text>
+<view>
+  <button>国内</button>
+  <button>国际</button>
+</view>
+<block wx:if='{{flag}}'>
+  <view wx:for='{{domesticflights}}' wx:key='{{index}}'>
+    <view class='item' data-flightcode='{{index}}' bindtap='toSearch1'>{{item}}</view>
+  </view>
+</block>

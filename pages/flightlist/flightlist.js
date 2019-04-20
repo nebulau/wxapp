@@ -55,7 +55,7 @@ Page({
           });
         }
         else if(typeof res.data.status=='string'){
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../notfound/notfound',
           })
         }
