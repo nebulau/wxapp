@@ -1,5 +1,6 @@
 // pages/list/list.js
 var app=getApp();
+var utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -48,12 +49,12 @@ Page({
       },
       success(res) {
         console.log(res.data);
-        if (res.data) {
+        if (!res.data.status) {
           _this.setData({
             list: res.data
           });
         }
-        else {
+        else if(typeof res.data.status=='string'){
           wx.navigateTo({
             url: '../notfound/notfound',
           })
@@ -113,31 +114,51 @@ Page({
   onShareAppMessage: function () {
 
   },
-  toDetail: function(event) {
+  toDetail: utils.throttle(function(event) {
     console.log(event.target.dataset.index);
     var index = event.target.dataset.index;
     app.data.flight_detailed_info_url=this.data.list[index].flight_detailed_info_url;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../detail/detail',
     })
-  },
+  },1000),
   setFocus: function(e) {
-    console.log(e.target.dataset.flight);
-    wx.request({
-      url: 'http://114.115.134.119:5000/beta/focus',
-      data: {
-        username:app.data.username,
-        token:app.data.token,
-        flightCode:e.target.dataset.flight,
-        date: this.data.date.replace(/-/g, '')
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res){
-        console.log(res.data);
-      }
-    });
+    console.log(e.target.dataset);
+    if (!app.data.isLoggedIn) {
+      wx.showToast({
+        title: '请您先登录',
+        icon: 'loading',
+        duration: 200
+      })
+    }
+    else {
+      wx.request({
+        url: 'http://114.115.134.119:5000/beta/focus',
+        data: {
+          username:app.data.username,
+          token:app.data.token,
+          flightCode:e.target.dataset.flight,
+          date: this.data.date.replace(/-/g, '')
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res){
+          console.log(res.data);
+          if(res.data.status=='success!'){
+            wx.showModal({
+              title: '关注成功',
+              content: '已添加至您的关注列表',
+            })
+          }else {
+            wx.showModal({
+              title: '关注失败',
+              content: '您可能已关注此航班',
+            })
+          }
+        }
+      })
+    }
   }
 })

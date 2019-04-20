@@ -115,7 +115,14 @@ Page({
           wx.showToast({
             title: '账户密码不正确',
             icon: 'loading',
-            duration: 300,
+            duration: 500,
+          })
+        }
+        else if(res.data.statusCode==-1){
+          wx.showToast({
+            title: '账户未激活',
+            icon: 'loading',
+            duration: 500,
           })
         }
       }

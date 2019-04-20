@@ -1,4 +1,5 @@
 var app = getApp();
+var utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -16,7 +17,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       isLoggedIn:app.data.isLoggedIn,
-      username:app.data.username
+      username:app.data.username,
+      token:app.data.token
     });
   },
 
@@ -71,12 +73,12 @@ Page({
   onShareAppMessage: function () {
     
   },
-  toLogin: function() {
+  toLogin: utils.throttle(function() {
     wx.navigateTo({
       url: '../login/login',
     })
-  },
-  toUserInfo: function() {
+  },1000),
+  toUserInfo: utils.throttle(function() {
     if(!this.data.isLoggedIn) {
       wx.showToast({
         title: '请您先登录',
@@ -89,8 +91,8 @@ Page({
         url: '../userinfo/userinfo',
       })
     }
-  },
-  toAttension: function() {
+  },1000),
+  toAttension: utils.throttle(function() {
     if (!this.data.isLoggedIn) {
       wx.showToast({
         title: '请您先登录',
@@ -103,16 +105,36 @@ Page({
         url: '../focus/focus',
       })
     }
-  },
+  },1000),
   logOut: function() {
-    this.setData({
-      isLoggedIn: false,
-      username:'',
-      token:''
-    });
-    app.data.isLoggedIn=false;
-    app.data.username='';
-    app.data.token='';
-    wx.clearStorage();
-  }
+    var _this=this;
+    wx.request({
+      url: 'http://114.115.134.119:5000/beta/logout',
+      data: {
+        username: this.data.username,
+        token: this.data.token
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res){
+        console.log(res.data);
+        _this.setData({
+          isLoggedIn: false,
+          username:'',
+          token:''
+        });
+        app.data.isLoggedIn=false;
+        app.data.username='';
+        app.data.token='';
+        wx.clearStorage();
+      }
+    })
+  },
+  toAboutUs: utils.throttle(function() {
+    wx.navigateTo({
+      url: '../aboutus/aboutus',
+    })
+  },1000)
 })

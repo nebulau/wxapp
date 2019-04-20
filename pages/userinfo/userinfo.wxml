@@ -1,2 +1,7 @@
 <!--pages/userinfo/userinfo.wxml-->
-<text>pages/userinfo/userinfo.wxml</text>
+<image class='background' src="../../imgs/sky.jpg" mode="aspectFill"></image>
+
+
+<view class='box'>
+  <button class='btn' bindtap='changePwd'>修改密码</button>
+</view>

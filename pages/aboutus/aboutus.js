@@ -1,12 +1,11 @@
-// pages/forgetpwd/forgetpwd.js
-var utils = require('../../utils/util.js');
+// pages/aboutus/aboutus.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username:''
+
   },
 
   /**
@@ -63,33 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  bindUser: function(e) {
-    this.setData({
-      username: e.detail.value
-    });
-  },
-  findPwd: utils.throttle(function() {
-    console.log(this.data.username);
-    wx.request({
-      url: 'http://114.115.134.119:5000/beta/modifyPasswordEmail',
-      data: {
-        username: this.data.username,
-      },
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res){
-        console.log(res.data);
-        wx.showModal({
-          title: '已发送邮件',
-          content: '请您前往邮箱点击链接找回密码',
-        })
-        wx.switchTab({
-          url: '../user/user',
-        })
-      }
-    })
-  },1000)
+  }
 })

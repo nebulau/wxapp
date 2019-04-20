@@ -1,0 +1,13 @@
+/* pages/aboutus/aboutus.wxss */
+page {
+  height: 100%;
+}
+.container {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  /* justify-content: center; */
+  color: #1b65ce;
+}

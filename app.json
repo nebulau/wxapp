@@ -12,7 +12,8 @@
     "pages/focus/focus",
     "pages/register/register",
     "pages/userinfo/userinfo",
-    "pages/airpicker/airpicker"
+    "pages/airpicker/airpicker",
+    "pages/aboutus/aboutus"
   ],
   "window":{
     "backgroundTextStyle":"light",

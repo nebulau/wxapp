@@ -87,7 +87,14 @@ Page({
     });
   },
   register: function() {
+    console.log('register');
     var _this=this;
+    if (!(this.data.pwdtwice == this.data.password)) {
+      wx.showModal({
+        title: '两次输入密码不一致',
+        content: '请您重新输入',
+      })
+    }
     wx.request({
       url: 'http://114.115.134.119:5000/beta/register',
       data: {
@@ -101,6 +108,13 @@ Page({
       },
       success(res) {
         console.log(res.data);
+        wx.showModal({
+          title: '请您前往邮箱激活',
+          content: '已为您跳转至登录页面',
+        })
+        wx.switchTab({
+          url: '../user/user',
+        })
       }
     })
   }

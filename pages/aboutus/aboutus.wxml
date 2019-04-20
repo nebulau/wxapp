@@ -1,0 +1,6 @@
+<!--pages/aboutus/aboutus.wxml-->
+<image class='background' src="../../imgs/sky.jpg" mode="aspectFill"></image>
+<view class='container'>
+  <image src='../../imgs/11.png' style='height:200rpx;width:400rpx'></image>
+  <text>E-mail:buaamyflight@163.com</text>
+</view>

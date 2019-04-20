@@ -1,4 +1,6 @@
 // pages/index0/index0.js
+var utils = require('../../utils/util.js');
+var app=getApp();
 Page({
 
   /**
@@ -64,15 +66,24 @@ Page({
 
   },
 
-  toSearch: function(){
+  toSearch: utils.throttle(function(){
     wx.navigateTo({
       url: '../search/search',
     })
-  },
+  },1000),
 
-  toAttension: function() {
-    wx.navigateTo({
-      url: '../focus/focus',
-    })
-  }
+  toAttension: utils.throttle(function() {
+    if (!app.data.isLoggedIn) {
+      wx.showToast({
+        title: '请您先登录',
+        icon: 'loading',
+        duration: 200
+      })
+    }
+    else {
+      wx.navigateTo({
+        url: '../focus/focus',
+      })
+    }
+  },1000)
 })

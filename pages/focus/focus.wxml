@@ -6,7 +6,7 @@
       <text>日期: {{item.date}}</text>
     </view>
     <view class='defocus'>
-      <text>取消\n关注</text>
+      <text data-flight='{{item.flightCode}}' data-date='{{item.date}}' bindtap='deFocus'>取消\n关注</text>
     </view>
   </view>
 </view>

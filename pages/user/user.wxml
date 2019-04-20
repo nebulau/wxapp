@@ -12,7 +12,7 @@
 <view class='container'>
   <button class='btn' bindtap='toUserInfo'>个人信息</button>
   <button class='btn' bindtap='toAttension'>关注列表</button>
-  <button class='btn' bindtap='toFeedBack'>意见反馈</button>
+  <!-- <button class='btn' bindtap='toFeedBack'>意见反馈</button> -->
   <button class='btn' bindtap='toAboutUs'>关于我们</button>
 </view>
 

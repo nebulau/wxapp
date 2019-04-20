@@ -19,8 +19,14 @@ page{
 }
 .focusitem {
   display: flex;
+  width: 70%;
   flex-flow: column nowrap;
+  background-color: grey;
 }
 .defocus {
   background-color: blanchedalmond;
+  width: 30%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }

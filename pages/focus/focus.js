@@ -98,5 +98,28 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  deFocus: function (e) {
+    console.log(e.target.dataset);
+    var _this=this;
+    wx.request({
+      url: 'http://114.115.134.119:5000/beta/unfocus',
+      data: {
+        username: app.data.username,
+        token: app.data.token,
+        flightCode: e.target.dataset.flight,
+        date: e.target.dataset.date.replace(/-/g, '')
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data);
+        wx.redirectTo({
+          url: '../focus/focus',
+        })
+      }
+    });
   }
 })
