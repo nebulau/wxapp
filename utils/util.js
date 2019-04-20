@@ -53,8 +53,13 @@ function throttle(fn, gaptime) {
     }
   }
 }
+var validateEmail = function (email) {
+  var reg = new RegExp('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$');
+  return reg.test(email)
+}
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
-  throttle:throttle
+  throttle:throttle,
+  validateEmail:validateEmail
 }

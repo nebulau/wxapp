@@ -1,4 +1,5 @@
 // pages/register/register.js
+var utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -94,6 +95,28 @@ Page({
         title: '两次输入密码不一致',
         content: '请您重新输入',
       })
+      return;
+    }
+    if(!utils.validateEmail(this.data.email)){
+      wx.showModal({
+        title: '邮箱格式不正确',
+        content: '请您重新输入',
+      })
+      return;
+    }
+    if(this.data.username.length>13||this.data.username.length<6){
+      wx.showModal({
+        title: '账号不合法',
+        content: '请您重新输入',
+      })
+      return;
+    }
+    if (this.data.password.length > 13 || this.data.password.length < 6) {
+      wx.showModal({
+        title: '密码不合法',
+        content: '请您重新输入',
+      })
+      return;
     }
     wx.request({
       url: 'http://114.115.134.119:5000/beta/register',
