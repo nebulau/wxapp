@@ -6,11 +6,22 @@
   justify-content: center;
 }
 .btn {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  line-height: 50rpx;
   width: 40%;
+  height: 60rpx;
+  /* color: #1b65ce; */
+  color: black;
+  font-size: 30rpx;
+  border: 2rpx solid #1b65ce;
+  border-radius: 35rpx;
+  background-color: transparent;
 }
 .item {
   /* margin-top: 3rpx; */
   /* margin-bottom: 3rpx; */
+  padding-left: 50rpx;
   height: 70rpx;
   border: 1px solid #eeeeee;
   display: flex;

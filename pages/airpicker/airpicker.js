@@ -463,9 +463,11 @@ Page({
    */
   onLoad: function (options) {
     console.log('aipicker page op: '+options.op);
-    this.setData({
-      op:options.op
-    })
+    if(options.op){
+      this.setData({
+        op:options.op
+      })
+    }
   },
 
   /**
