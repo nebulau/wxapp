@@ -1,10 +1,16 @@
 <!--pages/airpicker/airpicker.wxml-->
 <view class='switch'>
-  <button>国内</button>
-  <button>国际</button>
+  <button class='btn' bindtap='switchdomestic'>国内</button>
+  <button class='btn' bindtap='switchforeign'>国际</button>
 </view>
 <block wx:if='{{flag}}'>
   <view wx:for='{{domesticflights}}' wx:key='{{index}}'>
+    <view class='item' data-flightcode='{{index}}' data-airpname='{{item}}' bindtap='toSearch1'><text data-flightcode='{{index}}'
+    data-airpname='{{item}}' bindtap='toSearch1'>{{item}}</text></view>
+  </view>
+</block>
+<block wx:else>
+  <view wx:for='{{foreignflights}}' wx:key='{{index}}'>
     <view class='item' data-flightcode='{{index}}' data-airpname='{{item}}' bindtap='toSearch1'><text data-flightcode='{{index}}'
     data-airpname='{{item}}' bindtap='toSearch1'>{{item}}</text></view>
   </view>

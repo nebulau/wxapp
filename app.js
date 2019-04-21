@@ -5,9 +5,9 @@ App({
     isLoggedIn:false,
     username:'',
     token:'',
-    cityFrom: 'NAY',
+    cityFrom: 'SFO',
     cityTo: 'SHA',
-    cityFromCn: '北京南苑',
+    cityFromCn: '旧金山',
     cityToCn: '上海虹桥'
   },
   onLaunch(options) {

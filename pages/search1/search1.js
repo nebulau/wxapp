@@ -104,8 +104,16 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (e) {
+    console.log('---search-by-city---');
+    var DATE = utils.formatDate(new Date());
+    this.setData({
+      cityFrom: app.data.cityFrom,
+      cityFromCn: app.data.cityFromCn,
+      cityTo: app.data.cityTo,
+      cityToCn: app.data.cityToCn,
+      date: DATE,
+    });
   },
 
   /**
@@ -144,7 +152,7 @@ Page({
   },
   toAirpicker: utils.throttle(function(event) {
     console.log('choose '+event.target.dataset.op);
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../airpicker/airpicker?op='+event.target.dataset.op,
     })
   },1000)
