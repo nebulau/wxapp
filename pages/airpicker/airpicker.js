@@ -1,4 +1,5 @@
 // pages/airpicker/airpicker.js
+var utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -6,6 +7,7 @@ Page({
    */
   data: {
     flag:true,
+    op:'',//start代表选择起点，end代表选择终点
     domesticflights:{
       AHJ: '阿坝红原',
       YIE: '阿尔山伊尔施',
@@ -253,7 +255,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('aipicker page op: '+options.op);
+    this.setData({
+      op:options.op
+    })
   },
 
   /**
@@ -303,5 +308,18 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  toSearch1: utils.throttle(function(event) {
+    console.log(event.target.dataset);
+    if(this.data.op==='start'){
+      wx.redirectTo({
+        url: '../search1/search1?cityFrom='+event.target.dataset.flightcode+'&cityFromCn='+event.target.dataset.airpname,
+      })
+    }
+    else if(this.data.op==='end'){
+      wx.redirectTo({
+        url: '../search1/search1?cityTo='+event.target.dataset.flightcode+'&cityToCn='+event.target.dataset.airpname,
+      })
+    }
+  },1000)
 })

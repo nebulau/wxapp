@@ -3,11 +3,13 @@
 <view class='blank'></view>
 <view class='cityform'>
   <view class="cityfrom">
-    <input class='fromInput' bindinput="bindFromInput" placeholder="From:"/>
+    <!-- <input class='fromInput' bindinput="bindFromInput" placeholder="From:"/> -->
+    <view class='fromInput' data-op='start' bindtap='toAirpicker'>从: {{cityFromCn}}</view>
   </view>
 
   <view class="cityto">
-    <input class='fromInput' bindinput="bindToInput" placeholder="To:"  />
+    <!-- <input class='fromInput' bindinput="bindToInput" placeholder="To:"  /> -->
+    <view class='fromInput' data-op='end' bindtap='toAirpicker'>至: {{cityToCn}}</view>
   </view>
 </view>
 

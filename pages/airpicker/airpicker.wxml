@@ -5,6 +5,7 @@
 </view>
 <block wx:if='{{flag}}'>
   <view wx:for='{{domesticflights}}' wx:key='{{index}}'>
-    <view class='item' data-flightcode='{{index}}' bindtap='toSearch1'><text>{{item}}</text></view>
+    <view class='item' data-flightcode='{{index}}' data-airpname='{{item}}' bindtap='toSearch1'><text data-flightcode='{{index}}'
+    data-airpname='{{item}}' bindtap='toSearch1'>{{item}}</text></view>
   </view>
 </block>
