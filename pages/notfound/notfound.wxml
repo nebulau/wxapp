@@ -2,5 +2,5 @@
 <view class='nofound'>
   <icon type="info" size="50"></icon>
   <text class='info'>未查询到相关航班</text>
-  <text class='info'>请您检查航班号和日期是否正确</text>
+  <text class='info'>请您检查输入的航班信息和日期是否正确</text>
 </view>

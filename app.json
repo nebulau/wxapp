@@ -1,9 +1,8 @@
 {
   "pages":[
-    "pages/airpicker/airpicker",
     "pages/index0/index0",
     "pages/search1/search1",
-    
+    "pages/airpicker/airpicker",
     "pages/forgetpwd/forgetpwd",
     "pages/login/login",
     "pages/user/user",
