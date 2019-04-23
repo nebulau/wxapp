@@ -105,7 +105,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
-    console.log('---search-by-city---');
     var DATE = utils.formatDate(new Date());
     this.setData({
       cityFrom: app.data.cityFrom,

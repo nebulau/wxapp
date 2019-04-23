@@ -7,8 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    corpName:'',//联想选中后替换到输入框的值
+    flightCode:'',//联想之后得到的机场名称对应的机场缩写
+    bindSrc:[],//联想的列表
+    curSel: 'in',
     flag:true,
-    op:'',//start代表选择起点，end代表选择终点
+    noInput:true,
+    op:'start',//start代表选择起点，end代表选择终点
     domesticflights:{
       AHJ: '阿坝红原',
       YIE: '阿尔山伊尔施',
@@ -27,6 +32,7 @@ Page({
       RLK: '巴彦淖尔天吉泰',
       MFK: '北竿',
       BHY: '北海福成',
+      BJS: '北京',
       NAY: '北京南苑',
       PEK: '北京首都',
       BFJ: '毕节飞雄',
@@ -167,6 +173,7 @@ Page({
       RIZ: '日照山字河',
       SQJ: '三明沙县',
       SYX: '三亚凤凰',
+      SHH: '上海',
       SHA: '上海虹桥',
       PVG: '上海浦东',
       SQD: '上饶三清山',
@@ -520,11 +527,13 @@ Page({
   },
   switchdomestic: function() {
     this.setData({
+      curSel: 'in',
       flag:true
     })
   },
   switchforeign: function() {
     this.setData({
+      curSel: 'out',
       flag:false
     })
   },
@@ -534,15 +543,88 @@ Page({
       app.data.cityFrom=event.target.dataset.flightcode;
       app.data.cityFromCn=event.target.dataset.airpname;
       wx.navigateBack({
-        url: '../search1/search1?cityFrom='+event.target.dataset.flightcode+'&cityFromCn='+event.target.dataset.airpname,
+        delta:1
       })
     }
     else if(this.data.op==='end'){
       app.data.cityTo=event.target.dataset.flightcode;
       app.data.cityToCn=event.target.dataset.airpname;
       wx.navigateBack({
-        url: '../search1/search1?cityTo='+event.target.dataset.flightcode+'&cityToCn='+event.target.dataset.airpname,
+        delta:1
       })
     }
-  },1000)
+  },1000),
+  bindAirpname(e) {
+    if(e.detail.value!=''){
+      this.setData({
+        noInput:false
+      })
+    }else{
+      this.setData({
+        noInput: true
+      })
+    }
+    var prefix=e.detail.value;
+    var newSrc=[];
+    if(prefix!=""){
+      for(var item in this.data.domesticflights){
+        //this.data.domesticflights[item]为机场名
+        if (this.data.domesticflights[item].indexOf(prefix)!=-1){
+          newSrc.push(this.data.domesticflights[item])
+        }
+      }
+      for (var item in this.data.foreignflights) {
+        //this.data.domesticflights[item]为机场名
+        if (this.data.foreignflights[item].indexOf(prefix) != -1) {
+          newSrc.push(this.data.foreignflights[item])
+        }
+      }
+    }
+    if(newSrc.length!=0){
+      this.setData({
+        bindSrc:newSrc
+      })
+    }else {
+      this.setData({
+        bindSrc:[]
+      })
+    }
+  },
+  itemtap: function (e) {
+    console.log(e.target.id);
+    this.setData({
+      corpName: e.target.id
+    })
+    for(var item in this.data.domesticflights){
+      if(this.data.domesticflights[item]==this.data.corpName){
+        this.setData({
+          flightCode:item
+        })
+        break;
+      }
+    }
+    for(var item in this.data.foreignflights){
+      if(this.data.foreignflights[item]==this.data.corpName){
+        this.setData({
+          flightCode:item
+        })
+        break;
+      }
+    }
+    console.log(this.data.flightCode);
+    if (this.data.op === 'start') {
+      app.data.cityFrom = this.data.flightCode;
+      app.data.cityFromCn = this.data.corpName;
+      wx.navigateBack({
+        delta:1
+      })
+    }
+    else if (this.data.op === 'end') {
+      app.data.cityTo = this.data.flightCode;
+      app.data.cityToCn = this.data.corpName;
+      wx.navigateBack({
+        delta:1
+      })
+    }
+  }
 })

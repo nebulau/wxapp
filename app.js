@@ -6,9 +6,9 @@ App({
     username:'',
     token:'',
     cityFrom: 'SFO',
-    cityTo: 'SHA',
+    cityTo: 'PVG',
     cityFromCn: '旧金山',
-    cityToCn: '上海虹桥'
+    cityToCn: '上海浦东'
   },
   onLaunch(options) {
     // Do something initial when launch.
