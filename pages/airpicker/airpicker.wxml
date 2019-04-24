@@ -24,7 +24,7 @@
 <block wx:else>
   <scroll-view scroll-y="true" class="scrollview">
     <view wx:for="{{bindSrc}}" wx:key="index">
-      <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+      <view id="{{item}}" bindtap="itemtap" class="item">{{item}}</view>
     </view>
   </scroll-view>
 </block>
