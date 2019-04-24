@@ -131,13 +131,20 @@ Page({
       },
       success(res) {
         console.log(res.data);
-        wx.showModal({
-          title: '请您前往邮箱激活',
-          content: '已为您跳转至登录页面',
-        })
-        wx.switchTab({
-          url: '../user/user',
-        })
+        if(res.data.status=='success!'){
+          wx.showModal({
+            title: '请您前往邮箱激活',
+            content: '已为您跳转至登录页面',
+          })
+          wx.switchTab({
+            url: '../user/user',
+          })
+        }else {
+          wx.showModal({
+            title: '注册失败',
+            content: '用户名已被占用',
+          })
+        }
       }
     })
   }

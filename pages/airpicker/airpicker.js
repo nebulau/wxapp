@@ -1,11 +1,19 @@
 // pages/airpicker/airpicker.js
+var utils = require('../../utils/util.js');
+var app=getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    corpName:'',//联想选中后替换到输入框的值
+    flightCode:'',//联想之后得到的机场名称对应的机场缩写
+    bindSrc:[],//联想的列表
+    curSel: 'in',
     flag:true,
+    noInput:true,
+    op:'start',//start代表选择起点，end代表选择终点
     domesticflights:{
       AHJ: '阿坝红原',
       YIE: '阿尔山伊尔施',
@@ -246,6 +254,212 @@ Page({
       ZUH: '珠海金湾',
       ZYI: '遵义新舟',
       AXF: '左旗巴彦浩特'
+    },
+    foreignflights: {
+      ABV: '阿布贾',
+      AUH: '阿布扎比',
+      ADL: '阿德莱德',
+      EDI: '爱丁堡',
+      ACC: '阿克拉科托卡',
+      ALA: '阿拉木图',
+      ESB: '安卡拉埃森博阿',
+      AMM: '安曼阿莉娅王后',
+      AKL: '奥克兰',
+      MFM: '澳门',
+      OSL: '奥斯陆',
+      TSE: '阿斯塔纳',
+      SXF: '柏林舍讷费尔德',
+      TXL: '柏林泰格尔',
+      BAQ: '巴兰基亚',
+      ORY: '巴黎－奥利',
+      CDG: '巴黎戴高乐',
+      BLR: '班加罗尔',
+      BCN: '巴塞罗那',
+      BSB: '巴西利亚',
+      BFS: '贝尔法斯特',
+      BEG: '贝尔格莱德',
+      BGO: '卑尔根',
+      BEY: '贝鲁特',
+      PEN: '槟城',
+      FRU: '比什凯克马纳斯',
+      BOD: '波尔多',
+      BRN: '伯尔尼',
+      OPO: '波尔图',
+      BOG: '波哥大',
+      BHX: '伯明翰',
+      BOS: '波士顿',
+      BUD: '布达佩斯',
+      PRG: '布拉格',
+      BNE: '布里斯班',
+      BFN: '布隆方丹',
+      BRU: '布鲁塞尔',
+      EZE: '布宜诺斯艾利斯埃塞萨皮斯塔里尼部长',
+      OKA: '冲绳那霸',
+      KIX: '大阪关西',
+      ITM: '大阪伊丹',
+      DAC: '达卡齐亚',
+      DAR: '达累斯萨拉姆尼雷尔',
+      DMM: '达曼法赫德国王',
+      DAM: '大马士革',
+      DUR: '德班',
+      IKA: '德黑兰伊玛目霍梅尼',
+      DPS: '登巴萨巴厘岛',
+      DXB: '迪拜',
+      DTW: '底特律大都会',
+      CFN: 'Donegal多尼戈尔',
+      NRT: '东京成田',
+      HND: '东京羽田',
+      DUB: '都柏林',
+      DOH: '多哈',
+      YYZ: '多伦多皮尔逊',
+      EBB: '恩德培',
+      FRA: '法兰克福',
+      FLR: '佛罗伦萨',
+      FUK: '福冈',
+      VVO: '符拉迪沃斯托克',
+      WRO: '弗罗莰瓦夫',
+      PUS: '釜山金海',
+      KHH: '高雄',
+      CPH: '哥本哈根',
+      GOT: '哥德堡',
+      KUA: '关丹',
+      GUM: '关岛',
+      KHV: '哈巴罗夫斯克伯力',
+      HRE: '哈拉雷',
+      HLZ: 'Hamilton哈密尔顿',
+      HAM: '汉堡',
+      HAV: '哈瓦那何塞马蒂',
+      HEL: '赫尔辛基',
+      AMS: '荷兰阿姆斯特丹斯史基浦(西霍普)',
+      HAN: '河内内拜',
+      WAW: '华沙萧邦',
+      IAD: '华盛顿杜勒斯',
+      WLG: '惠灵顿',
+      SGN: '胡志明市新山一',
+      IOM: 'Isle Of Man罗纳尔兹威',
+      CWL: '加的夫',
+      KTM: '加德满都',
+      CCU: '加尔各答',
+      CGP: '吉大港',
+      IEV: '基辅',
+      KUL: '吉隆坡',
+      PNH: '金边',
+      SFO: '旧金山',
+      CJU: '济州岛济州',
+      YYC: '卡尔加里CALGARY',
+      CAI: '开罗',
+      CPT: '开普敦开普顿',
+      KHI: '卡拉奇',
+      CLO: '卡利',
+      CBR: '堪培拉',
+      ORK: '科克',
+      KRK: '克拉科夫',
+      KJA: '克拉斯诺亚尔斯克',
+      CGN: '科隆',
+      CMB: '科伦坡班达拉奈克',
+      LHE: '拉合尔',
+      LCA: '拉纳卡',
+      LGK: '兰卡威浮罗交怡',
+      LAS: '拉斯维加斯麦卡伦',
+      LYS: '里昂',
+      LIM: '利马',
+      LIS: '里斯本',
+      LPL: '利物浦约翰列侬',
+      RUH: '利雅得哈立德国王',
+      GIG: '里约热内卢 加利昂',
+      LGW: '伦敦盖特威克',
+      LHR: '伦敦希思罗',
+      LAD: '罗安达二月四日',
+      FCO: '罗马菲乌米奇诺',
+      LAX: '洛杉矶',
+      RTM: '鹿特丹',
+      MAD: '马德里',
+      MED: '麦地那穆罕默德·本·阿卜杜勒-阿齐兹亲王',
+      MLE: '马累',
+      MAN: '曼彻斯特',
+      MDL: '曼德勒',
+      BKK: '曼谷(素万那普)',
+      MNL: '马尼拉',
+      MRU: '毛里求斯',
+      MRS: '马赛普罗旺斯',
+      MCT: '马斯喀特',
+      BOM: '孟买',
+      YUL: '蒙特利尔特鲁多',
+      LIN: '米兰利纳特',
+      MXP: '米兰马尔本萨',
+      NGO: '名古屋中部/新特丽亚',
+      MSQ: '明斯克',
+      MEL: '墨尔本',
+      DME: '莫斯科多莫杰多沃',
+      VKO: '莫斯科伏努科沃',
+      SVO: '莫斯科谢诺梅杰沃',
+      MEX: '墨西哥城',
+      MTY: '墨西哥蒙特雷',
+      MUC: '慕尼黑',
+      NAP: '那不勒斯',
+      NAN: '南迪',
+      NBO: '内罗毕乔莫·肯雅塔',
+      NTL: '纽卡斯尔威廉斯敦',
+      EWR: '纽瓦克',
+      JFK: '纽约肯尼迪',
+      LGA: '纽约拉瓜迪亚',
+      FNJ: '平壤顺安',
+      PER: '珀斯',
+      HKT: '普吉岛普吉',
+      CTS: '千岁',
+      CNX: '清迈',
+      AOJ: '青森',
+      GVA: '日内瓦',
+      SPN: '塞班',
+      SKG: '塞萨洛尼基',
+      SVQ: '塞维利亚',
+      BKI: '沙巴',
+      SHJ: '沙迦莎迦',
+      GRU: '圣保罗',
+      LED: '圣彼得堡',
+      SCL: '圣地亚哥阿图罗奴贝尼特斯',
+      GMP: '首尔金浦',
+      ICN: '首尔仁川',
+      ARN: '斯德哥尔摩',
+      BWN: '斯里巴加湾文莱',
+      ZRH: '苏黎世',
+      USM: '苏梅岛',
+      CEB: '宿雾',
+      TSA: '台北松山',
+      TPE: '台北桃园',
+      TSV: '汤斯维尔',
+      HNL: '檀香山',
+      TAS: '塔什干',
+      TLV: '特拉维夫',
+      TKU: '图尔库',
+      BDO: '万隆',
+      VTE: '万象瓦岱',
+      VCE: '威尼斯',
+      YVR: '温哥华',
+      YOW: '渥太华',
+      ULN: '乌兰巴托',
+      DAD: '岘港',
+      HKG: '香港赤鱲角',
+      REP: '暹粒吴哥',
+      DEL: '新德里德里',
+      SYD: '悉尼金斯福德·史密斯',
+      SIN: '新加坡樟宜',
+      OVB: '新西伯利亚',
+      HOU: '休斯顿',
+      IAH: '休斯敦',
+      SEA: '西雅图塔科马',
+      ADD: '亚的斯亚贝巴博乐',
+      ATH: '雅典',
+      CGK: '雅加达苏加诺-哈达',
+      RGN: '仰光',
+      SVX: '叶卡捷琳堡/科利佐沃',
+      IKT: '伊尔库茨克',
+      ISB: '伊斯兰堡贝娜齐尔·布托',
+      IST: '伊斯坦布尔阿塔图尔克',
+      ADB: '伊兹密尔',
+      JNB: '约翰内斯堡',
+      ORD: '芝加哥奥黑尔',
+      SUB: '朱安达泗水'
     }
   },
 
@@ -253,7 +467,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('aipicker page op: '+options.op);
+    if(options.op){
+      this.setData({
+        op:options.op
+      })
+    }
   },
 
   /**
@@ -303,5 +522,107 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  switchdomestic: function() {
+    this.setData({
+      curSel: 'in',
+      flag:true
+    })
+  },
+  switchforeign: function() {
+    this.setData({
+      curSel: 'out',
+      flag:false
+    })
+  },
+  toSearch1: utils.throttle(function(event) {
+    console.log(event.target.dataset);
+    if(this.data.op==='start'){
+      app.data.cityFrom=event.target.dataset.flightcode;
+      app.data.cityFromCn=event.target.dataset.airpname;
+      wx.navigateBack({
+        delta:1
+      })
+    }
+    else if(this.data.op==='end'){
+      app.data.cityTo=event.target.dataset.flightcode;
+      app.data.cityToCn=event.target.dataset.airpname;
+      wx.navigateBack({
+        delta:1
+      })
+    }
+  },1000),
+  bindAirpname(e) {
+    if(e.detail.value!=''){
+      this.setData({
+        noInput:false
+      })
+    }else{
+      this.setData({
+        noInput: true
+      })
+    }
+    var prefix=e.detail.value;
+    var newSrc=[];
+    if(prefix!=""){
+      for(var item in this.data.domesticflights){
+        //this.data.domesticflights[item]为机场名
+        if (this.data.domesticflights[item].indexOf(prefix)!=-1){
+          newSrc.push(this.data.domesticflights[item])
+        }
+      }
+      for (var item in this.data.foreignflights) {
+        //this.data.domesticflights[item]为机场名
+        if (this.data.foreignflights[item].indexOf(prefix) != -1) {
+          newSrc.push(this.data.foreignflights[item])
+        }
+      }
+    }
+    if(newSrc.length!=0){
+      this.setData({
+        bindSrc:newSrc
+      })
+    }else {
+      this.setData({
+        bindSrc:[]
+      })
+    }
+  },
+  itemtap: function (e) {
+    console.log(e.target.id);
+    this.setData({
+      corpName: e.target.id
+    })
+    for(var item in this.data.domesticflights){
+      if(this.data.domesticflights[item]==this.data.corpName){
+        this.setData({
+          flightCode:item
+        })
+        break;
+      }
+    }
+    for(var item in this.data.foreignflights){
+      if(this.data.foreignflights[item]==this.data.corpName){
+        this.setData({
+          flightCode:item
+        })
+        break;
+      }
+    }
+    console.log(this.data.flightCode);
+    if (this.data.op === 'start') {
+      app.data.cityFrom = this.data.flightCode;
+      app.data.cityFromCn = this.data.corpName;
+      wx.navigateBack({
+        delta:1
+      })
+    }
+    else if (this.data.op === 'end') {
+      app.data.cityTo = this.data.flightCode;
+      app.data.cityToCn = this.data.corpName;
+      wx.navigateBack({
+        delta:1
+      })
+    }
   }
 })

@@ -1,13 +1,16 @@
 // pages/search1/search1.js
 var utils = require('../../utils/util.js');
+var app=getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cityFrom: '',
-    cityTo: '',
+    cityFrom: 'NAY',
+    cityTo: 'SHA',
+    cityFromCn:'北京南苑',
+    cityToCn:'上海虹桥',
     date: '2019-04-01'
   },
   bindFromInput(e) {
@@ -64,12 +67,31 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (e) {
     console.log('---search-by-city---');
     var DATE = utils.formatDate(new Date());
     this.setData({
+      cityFrom: app.data.cityFrom,
+      cityFromCn: app.data.cityFromCn,
+      cityTo: app.data.cityTo,
+      cityToCn: app.data.cityToCn,
       date: DATE,
     });
+    if(e.cityFrom){
+      app.data.cityFrom=e.cityFrom;
+      app.data.cityFromCn=e.cityFromCn;
+      this.setData({
+        cityFrom:app.data.cityFrom,
+        cityFromCn:app.data.cityFromCn
+      })
+    }else if(e.cityTo){
+      app.data.cityTo=e.cityTo;
+      app.data.cityToCn=e.cityToCn;
+      this.setData({
+        cityTo:app.data.cityTo,
+        cityToCn:app.data.cityToCn
+      })
+    }
   },
 
   /**
@@ -82,8 +104,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (e) {
+    var DATE = utils.formatDate(new Date());
+    this.setData({
+      cityFrom: app.data.cityFrom,
+      cityFromCn: app.data.cityFromCn,
+      cityTo: app.data.cityTo,
+      cityToCn: app.data.cityToCn,
+      date: DATE,
+    });
   },
 
   /**
@@ -119,5 +148,11 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  toAirpicker: utils.throttle(function(event) {
+    console.log('choose '+event.target.dataset.op);
+    wx.navigateTo({
+      url: '../airpicker/airpicker?op='+event.target.dataset.op,
+    })
+  },1000)
 })

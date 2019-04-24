@@ -1,6 +1,60 @@
 /* pages/airpicker/airpicker.wxss */
+.switch {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  line-height: 55rpx;
+  width: 40%;
+  height: 60rpx;
+  color: black;
+  font-size: 30rpx;
+  border: 2rpx solid black;
+  border-radius: 35rpx;
+  background-color: transparent;
+}
+.btn.active {
+  color: #1b65ce;
+  border: 2rpx solid #1b65ce;
+}
 .item {
-  margin: 5rpx;
-  height: 80rpx;
-  border: 1px solid black;
+  padding-left: 50rpx;
+  height: 70rpx;
+  border-bottom: 1px solid #cccccc;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.dataInput {
+  margin-top: 5rpx;
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+  border: 1px solid #2c3036;
+  height: 37px;
+  line-height: 37px;
+  font-size: 14px;
+  border-radius: 20px;
+  color: black;
+  padding-left: 35px;
+}
+
+
+
+.scrollview {
+  height: 90%;
+  position: absolute;
+  top: 100rpx;
+}
+
+.itemview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 50rpx;
+  height: 70rpx;
+  border-bottom: 1px solid #cccccc;
 }

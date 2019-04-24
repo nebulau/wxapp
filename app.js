@@ -4,7 +4,11 @@ App({
     flight_detailed_info_url:'',
     isLoggedIn:false,
     username:'',
-    token:''
+    token:'',
+    cityFrom: 'SFO',
+    cityTo: 'PVG',
+    cityFromCn: '旧金山',
+    cityToCn: '上海浦东'
   },
   onLaunch(options) {
     // Do something initial when launch.

@@ -71,6 +71,13 @@ Page({
   },
   findPwd: utils.throttle(function() {
     console.log(this.data.username);
+    if(this.data.username.length==0){
+      wx.showModal({
+        title: '账号输入不正确',
+        content: '请您重新输入',
+      })
+      return;
+    }
     wx.request({
       url: 'http://114.115.134.119:5000/beta/modifyPasswordEmail',
       data: {

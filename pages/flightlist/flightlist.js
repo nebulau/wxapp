@@ -49,12 +49,12 @@ Page({
       },
       success(res) {
         console.log(res.data);
-        if (!res.data.status) {
+        if (res.data.length!=0) {
           _this.setData({
             list: res.data
           });
         }
-        else if(typeof res.data.status=='string'){
+        else if(res.data.length==0){
           wx.redirectTo({
             url: '../notfound/notfound',
           })

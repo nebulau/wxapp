@@ -1,10 +1,30 @@
 <!--pages/airpicker/airpicker.wxml-->
-<view>
-  <button>国内</button>
-  <button>国际</button>
-</view>
-<block wx:if='{{flag}}'>
-  <view wx:for='{{domesticflights}}' wx:key='{{index}}'>
-    <view class='item' data-flightcode='{{index}}' bindtap='toSearch1'>{{item}}</view>
+<input class='dataInput' placeholder='输入机场名称' bindinput='bindAirpname' value="{{corpName}}"/>
+<block wx:if='{{noInput}}'>
+  <view class='switch'>
+    <button class="btn {{curSel=='in'?'active':''}}" bindtap='switchdomestic'>国内</button>
+    <button class="btn {{curSel=='out'?'active':''}}" bindtap='switchforeign'>国际</button>
   </view>
+  <block wx:if='{{flag}}'>
+    <view wx:for='{{domesticflights}}' wx:key='{{index}}'>
+      <view class='item' data-flightcode='{{index}}' data-airpname='{{item}}' bindtap='toSearch1'><text data-flightcode='{{index}}'
+      data-airpname='{{item}}' bindtap='toSearch1'>{{item}}</text></view>
+    </view>
+  </block>
+  <block wx:else>
+    <view wx:for='{{foreignflights}}' wx:key='{{index}}'>
+      <view class='item' data-flightcode='{{index}}' data-airpname='{{item}}' bindtap='toSearch1'><text data-flightcode='{{index}}'
+      data-airpname='{{item}}' bindtap='toSearch1'>{{item}}</text></view>
+    </view>
+  </block>
+</block>
+<block wx:elif='{{bindSrc.length==0}}'>
+  <view class='item'>无搜索结果</view>
+</block>
+<block wx:else>
+  <scroll-view scroll-y="true" class="scrollview">
+    <view wx:for="{{bindSrc}}" wx:key="index">
+      <view id="{{item}}" bindtap="itemtap" class="item">{{item}}</view>
+    </view>
+  </scroll-view>
 </block>
