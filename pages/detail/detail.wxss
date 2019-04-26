@@ -8,8 +8,14 @@ page {
   margin-left: 30rpx;
   margin-right: 30rpx;
 }
-.flightinfo {
-  background-color: rgb(172, 106, 106);
+.flightinfocard {
+  background-color: white;
+  border: 2px solid #ffffff;
+  border-radius: 5px;  
+  box-shadow: 4px 1px 1px #cccccc;
+  margin: 8px;
+  position: relative;
+  padding: 5rpx;
 }
 .distanceinfo {
   display: flex;
@@ -51,4 +57,13 @@ page {
 .airport {
   background-color: #eeeeee;
   margin: 30rpx;
+}
+.card {
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 4px 1px 1px #cccccc;
+    margin: 8px;
+    position: relative;
+    padding: 5rpx;
 }

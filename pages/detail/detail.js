@@ -14,9 +14,7 @@ Page({
    */
   onLoad: function (options) {
     var _this=this;
-    console.log('detail page');
     this.data.flight_detailed_info_url = app.data.flight_detailed_info_url;
-    console.log(this.data.flight_detailed_info_url);
     wx.request({
       url: 'http://114.115.134.119:5000/beta/detailedInfo',
       data: {
@@ -27,7 +25,6 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data);
         _this.setData({
           detailInfo:res.data,
         });

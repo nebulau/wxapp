@@ -70,7 +70,6 @@ Page({
     });
   },
   findPwd: utils.throttle(function() {
-    console.log(this.data.username);
     if(this.data.username.length==0){
       wx.showModal({
         title: '账号输入不正确',
@@ -88,7 +87,6 @@ Page({
         'content-type': 'application/json'
       },
       success(res){
-        console.log(res.data);
         wx.showModal({
           title: '已发送邮件',
           content: '请您前往邮箱点击链接找回密码',

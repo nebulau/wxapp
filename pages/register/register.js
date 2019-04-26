@@ -88,7 +88,6 @@ Page({
     });
   },
   register: function() {
-    console.log('register');
     var _this=this;
     if (!(this.data.pwdtwice == this.data.password)) {
       wx.showModal({
@@ -130,7 +129,6 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data);
         if(res.data.status=='success!'){
           wx.showModal({
             title: '请您前往邮箱激活',

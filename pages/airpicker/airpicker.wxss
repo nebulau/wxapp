@@ -22,6 +22,8 @@
   border: 2rpx solid #1b65ce;
 }
 .item {
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding-left: 50rpx;
   height: 70rpx;
   border-bottom: 1px solid #cccccc;

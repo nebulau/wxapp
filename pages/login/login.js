@@ -78,7 +78,6 @@ Page({
   },
   logIn: function() {
     var _this=this;
-    console.log(this.data);
     wx.request({
       url: 'http://114.115.134.119:5000/beta/login',
       data: {
@@ -90,7 +89,6 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data);
         if(res.data.statusCode===1){
           app.data.isLoggedIn = true;
           app.data.username = _this.data.username;

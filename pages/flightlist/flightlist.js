@@ -26,7 +26,6 @@ Page({
       cityTo: options.cityTo,
       date: options.date
     });
-    console.log(this.data.op,this.data.flightCode,this.data.cityFrom,this.data.cityTo,this.data.date);
     wx.showLoading({
       title: 'Loading...',
     });
@@ -48,7 +47,6 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data);
         if (res.data.length!=0) {
           _this.setData({
             list: res.data
@@ -115,7 +113,6 @@ Page({
 
   },
   toDetail: utils.throttle(function(event) {
-    console.log(event.target.dataset.index);
     var index = event.target.dataset.index;
     app.data.flight_detailed_info_url=this.data.list[index].flight_detailed_info_url;
     wx.navigateTo({
@@ -123,7 +120,6 @@ Page({
     })
   },1000),
   setFocus: function(e) {
-    console.log(e.target.dataset);
     if (!app.data.isLoggedIn) {
       wx.showToast({
         title: '请您先登录',
@@ -145,7 +141,6 @@ Page({
           'content-type': 'application/json'
         },
         success(res){
-          console.log(res.data);
           if(res.data.status=='success!'){
             wx.showModal({
               title: '关注成功',

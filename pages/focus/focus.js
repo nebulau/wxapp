@@ -31,18 +31,15 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data);
         _this.setData({
           focuslist: res.data,
         });
         if(_this.data.focuslist.length==0){
-          console.log('empty focuslist');
           _this.setData({
             notempty:false
           });
         }
         if(!app.data.isLoggedIn){
-          console.log('hasn`t loggd in');
           _this.setData({
             notempty: false
           });
@@ -100,7 +97,6 @@ Page({
 
   },
   deFocus: function (e) {
-    console.log(e.target.dataset);
     var _this=this;
     wx.request({
       url: 'http://114.115.134.119:5000/beta/unfocus',
@@ -115,7 +111,6 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data);
         wx.redirectTo({
           url: '../focus/focus',
         })

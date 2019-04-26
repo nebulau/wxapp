@@ -23,3 +23,5 @@
 
 <button bindtap='toFlightList' class='btn'>按航班号查询</button>
 <button bindtap='toSearch1' class='btn'>按起降地查询</button>
+
+
