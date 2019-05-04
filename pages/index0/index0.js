@@ -66,9 +66,9 @@ Page({
 
   },
 
-  toSearch: utils.throttle(function(){
+  toQuery: utils.throttle(function(){
     wx.navigateTo({
-      url: '../search/search',
+      url: '../query/query',
     })
   },1000),
 

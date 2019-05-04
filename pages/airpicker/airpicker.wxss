@@ -1,4 +1,7 @@
 /* pages/airpicker/airpicker.wxss */
+page {
+  height: 100%;
+}
 .switch {
   display: flex;
   flex-flow: row nowrap;
@@ -32,11 +35,12 @@
   align-items: center;
 }
 .dataInput {
+  height: 5%;
   margin-top: 5rpx;
   margin-left: 35rpx;
   margin-right: 35rpx;
   border: 1px solid #2c3036;
-  height: 37px;
+  /* height: 37px; */
   line-height: 37px;
   font-size: 14px;
   border-radius: 20px;
@@ -47,7 +51,7 @@
 
 
 .scrollview {
-  height: 90%;
+  height: 95%;
   position: absolute;
   top: 100rpx;
 }

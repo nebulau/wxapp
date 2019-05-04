@@ -93,6 +93,7 @@ Page({
       wx.showModal({
         title: '两次输入密码不一致',
         content: '请您重新输入',
+        showCancel: false,
       })
       return;
     }
@@ -100,6 +101,7 @@ Page({
       wx.showModal({
         title: '邮箱格式不正确',
         content: '请您重新输入',
+        showCancel: false,
       })
       return;
     }
@@ -107,6 +109,7 @@ Page({
       wx.showModal({
         title: '账号不合法',
         content: '请您重新输入',
+        showCancel: false,
       })
       return;
     }
@@ -114,6 +117,7 @@ Page({
       wx.showModal({
         title: '密码不合法',
         content: '请您重新输入',
+        showCancel: false,
       })
       return;
     }
@@ -133,6 +137,7 @@ Page({
           wx.showModal({
             title: '请您前往邮箱激活',
             content: '已为您跳转至登录页面',
+            showCancel: false,
           })
           wx.switchTab({
             url: '../user/user',
@@ -141,6 +146,7 @@ Page({
           wx.showModal({
             title: '注册失败',
             content: '用户名已被占用',
+            showCancel: false,
           })
         }
       }

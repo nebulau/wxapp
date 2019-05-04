@@ -23,16 +23,20 @@ item {
                 <text style='font-size:65rpx;'  data-index='{{index}}' bindtap='toDetail'>{{item.dep_time_plan}}</text>
                 <view class='airpname' data-index='{{index}}' bindtap='toDetail'>{{item.dep_airp}}</view>
               </view>
-              <view class='status' style="color:{{item.flight_status=='延误'||item.flight_status=='取消'?'red':'green'}};width:20%;font-size:30rpx;"  data-index='{{index}}' bindtap='toDetail'>{{item.flight_status}}</view>
+              <view class='status' style="color:{{item.flight_status=='延误预警'||item.flight_status=='延误'||item.flight_status=='提前取消'||item.flight_status=='取消'?'red':'green'}};width:20%;font-size:30rpx;"  data-index='{{index}}' bindtap='toDetail'>{{item.flight_status}}</view>
               <view class='timeplace' style='width:40%;' data-index='{{index}}' bindtap='toDetail'>
                 <text style='font-size:65rpx;'  data-index='{{index}}' bindtap='toDetail'>{{item.arri_time_plan}}</text>
                 <view class='airpname' data-index='{{index}}' bindtap='toDetail'>{{item.arri_airp}}</view>
               </view>
             </view>
         </view>
-        
-        <view class='partr'><text data-flight='{{item.flight_code}}' bindtap='setFocus'>关注\n\n航班</text></view>
 
+        <block wx:if="{{false}}">
+          <text class='partr' data-flight='{{item.flight_code}}' bindtap='setFocus'>{{inFocusList}}已经\n\n关注</text>
+        </block>
+        <block wx:else>
+          <text class='partr' data-flight='{{item.flight_code}}' bindtap='setFocus'>关注\n\n航班</text>
+        </block>
       </view>
   </view>
 </block>

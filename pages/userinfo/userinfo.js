@@ -90,6 +90,7 @@ Page({
         wx.showModal({
           title: '已发送邮件',
           content: '请您前往邮箱点击链接修改密码',
+          showCancel: false,
         })
         wx.switchTab({
           url: '../user/user',

@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index0/index0",
+    "pages/query/query",
     "pages/airpicker/airpicker",
     "pages/search1/search1",
     "pages/forgetpwd/forgetpwd",

@@ -42,7 +42,7 @@ pre_fligt:"前序航班暂未到达"
   </view>
 
   <view wx:for='{{detailInfo.airp_datas}}' wx:key='index' class='card'>
-    <view>机场: {{index}}</view>
+    <view>机场: <text style='color:#1b65ce'>{{index}}</text> </view>
     <view wx:for='{{item}}' wx:for-index='key' wx:for-item='value' wx:key='key' class='pairsbox'>
       <view class='pair'>
         <block wx:if="{{key!='weather'}}">

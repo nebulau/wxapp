@@ -8,7 +8,8 @@ App({
     cityFrom: 'SFO',
     cityTo: 'PVG',
     cityFromCn: '旧金山',
-    cityToCn: '上海浦东'
+    cityToCn: '上海浦东',
+    focuslist: []
   },
   onLaunch(options) {
     // Do something initial when launch.

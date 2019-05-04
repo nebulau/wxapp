@@ -74,6 +74,7 @@ Page({
       wx.showModal({
         title: '账号输入不正确',
         content: '请您重新输入',
+        showCancel: false,
       })
       return;
     }
@@ -90,6 +91,7 @@ Page({
         wx.showModal({
           title: '已发送邮件',
           content: '请您前往邮箱点击链接找回密码',
+          showCancel: false,
         })
         wx.switchTab({
           url: '../user/user',

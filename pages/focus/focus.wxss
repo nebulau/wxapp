@@ -11,20 +11,26 @@ page{
   justify-content: center;
 }
 .itembox {
-  background: #eeeeee;
-  margin: 20rpx;
-  justify-content: space-between;
-  display: flex;
-  flex-flow: row nowrap;
+  border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 4px 1px 1px #cccccc;
+    margin: 8px;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
 .focusitem {
+  margin-left: 60rpx;
   display: flex;
   width: 70%;
   flex-flow: column nowrap;
-  background-color: grey;
+  background-color: white;
 }
 .defocus {
-  background-color: blanchedalmond;
+  border-left: 2rpx solid #eeeeee;
+  background-color: white;
   width: 30%;
   display: flex;
   flex-flow: row nowrap;

@@ -3,7 +3,7 @@
 <view class='blank'></view>
 
 <view>
-  <button bindtap='toSearch' class='btn' >航班查询</button>
+  <button bindtap='toQuery' class='btn' >航班查询</button>
 </view>
 
 <view>

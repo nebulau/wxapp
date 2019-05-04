@@ -11,7 +11,8 @@ Page({
     flightCode: '',
     cityFrom: '',
     cityTo: '',
-    date: ''
+    date: '',
+    focuslist:[]
   },
 
   /**
@@ -24,7 +25,8 @@ Page({
       flightCode: options.flightCode,
       cityFrom: options.cityFrom,
       cityTo: options.cityTo,
-      date: options.date
+      date: options.date,
+      focuslist:app.data.focuslist
     });
     wx.showLoading({
       title: 'Loading...',
@@ -145,11 +147,13 @@ Page({
             wx.showModal({
               title: '关注成功',
               content: '已添加至您的关注列表',
+              showCancel: false,
             })
           }else {
             wx.showModal({
               title: '关注失败',
               content: '您可能已关注此航班',
+              showCancel: false,
             })
           }
         }

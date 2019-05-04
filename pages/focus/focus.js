@@ -1,5 +1,6 @@
 // pages/attension/attension.js
 var app = getApp();
+var utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -8,7 +9,8 @@ Page({
   data: {
     username:'',
     token:'',
-    notempty:true
+    notempty:true,
+    focuslist:[]
   },
 
   /**
@@ -45,7 +47,7 @@ Page({
           });
         }
       }
-    });
+    })
   },
 
   /**
@@ -96,25 +98,35 @@ Page({
   onShareAppMessage: function () {
 
   },
-  deFocus: function (e) {
+  deFocus: utils.throttle(function (e) {
     var _this=this;
-    wx.request({
-      url: 'http://114.115.134.119:5000/beta/unfocus',
-      data: {
-        username: app.data.username,
-        token: app.data.token,
-        flightCode: e.target.dataset.flight,
-        date: e.target.dataset.date.replace(/-/g, '')
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res) {
-        wx.redirectTo({
-          url: '../focus/focus',
-        })
+    wx.showModal({
+      title: '请您确认',
+      content: '您确定要取消关注此航班吗?',
+      success(res){
+        if(res.confirm){
+          wx.request({
+            url: 'http://114.115.134.119:5000/beta/unfocus',
+            data: {
+              username: app.data.username,
+              token: app.data.token,
+              flightCode: e.target.dataset.flight,
+              date: e.target.dataset.date.replace(/-/g, '')
+            },
+            method: "POST",
+            header: {
+              'content-type': 'application/json'
+            },
+            success(res) {
+              wx.redirectTo({
+                url: '../focus/focus',
+              })
+            }
+          })
+        }
+        else{}
       }
-    });
-  }
+    })
+      
+  },1000)
 })

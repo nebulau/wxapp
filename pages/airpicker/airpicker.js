@@ -6241,6 +6241,7 @@ Page({
       RLK: '巴彦淖尔天吉泰',
       MFK: '北竿',
       BHY: '北海福成',
+      BJS: '北京',
       NAY: '北京南苑',
       PEK: '北京首都',
       BFJ: '毕节飞雄',
@@ -6381,6 +6382,7 @@ Page({
       RIZ: '日照山字河',
       SQJ: '三明沙县',
       SYX: '三亚凤凰',
+      SHH: '上海',
       SHA: '上海虹桥',
       PVG: '上海浦东',
       SQD: '上饶三清山',
@@ -6743,7 +6745,7 @@ Page({
       flag:false
     })
   },
-  toSearch1: utils.throttle(function(event) {
+  toQuery: utils.throttle(function(event) {
     if(this.data.op==='start'){
       app.data.cityFrom=event.target.dataset.flightcode;
       app.data.cityFromCn=event.target.dataset.airpname;
@@ -6774,7 +6776,7 @@ Page({
     if(prefix!=""){
       for(var item in this.data.domesticflights){
         //this.data.domesticflights[item]为机场名
-        if (this.data.domesticflights[item].indexOf(prefix)!=-1){
+        if (this.data.domesticflights[item].indexOf(prefix)==0){
           newSrc.push(this.data.domesticflights[item])
         }
       }
@@ -6785,7 +6787,7 @@ Page({
       //   }
       // }
       for(var item in this.data.outflights){
-        if(this.data.outflights[item].indexOf(prefix)!=-1){
+        if(this.data.outflights[item].indexOf(prefix)==0){
           newSrc.push(this.data.outflights[item])
         }
       }

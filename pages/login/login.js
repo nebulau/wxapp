@@ -105,6 +105,22 @@ Page({
             key: 'token',
             data: app.data.token,
           });
+          //请求获取关注列表
+          wx.request({
+            url: 'http://114.115.134.119:5000/beta/getFocusedFlights',
+            data: {
+              username: app.data.username,
+              token: app.data.token
+            },
+            method: "POST",
+            header: {
+              'content-type': 'application/json'
+            },
+            success(res) {
+              app.data.focuslist=res.data;
+            }
+          })
+          //
           wx.switchTab({
             url: '../user/user',
           });

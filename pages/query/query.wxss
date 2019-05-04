@@ -1,0 +1,93 @@
+/* pages/query/query.wxss */
+.blank {
+  height: 400rpx;
+}
+.cityfrom{
+  margin-left: 0;
+  float:left;
+  /* height: 60px; */
+  width: 45%;
+}
+
+.cityto{
+  margin-right: 0;
+  float: right;
+  /* height: 60px; */
+  width: 45%;
+}
+.fromInput {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #2c3036;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border-radius: 20px;
+  color: black;
+  padding-left: 35px;
+}
+ .cityform {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btns {
+  display: flex;
+  flex-flow: row nowrap;
+}
+ .form {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.dataInput {
+  width: 80%;
+  border: 1px solid #2c3036;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border-radius: 20px;
+  color: black;
+  padding-left: 35px;
+}
+.card {
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 4px 1px 1px #cccccc;
+    margin: 8px;
+    position: relative;
+    margin-top: 200rpx;
+}
+.btnn.active {
+  margin-top: 50%;
+  margin-bottom: 20rpx;
+  line-height: 55rpx;
+  width: 35%;
+  height: 60rpx;
+  color: blue;
+  font-size: 30rpx;
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 2rpx solid #1b65ce;
+}
+.btnn {
+  margin-top: 50%;
+  margin-bottom: 20rpx;
+  line-height: 55rpx;
+  width: 35%;
+  height: 60rpx;
+  color: black;
+  font-size: 30rpx;
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 2rpx solid black;
+}
+.btnn::after{
+  border: none;
+}
