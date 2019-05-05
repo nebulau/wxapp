@@ -15,6 +15,24 @@ Page({
     cityToCn: '',
     flightCode:''
   },
+  reverse: function() {
+    var str1='';
+    var str2='';
+    str1=this.data.cityFrom;
+    str2=this.data.cityFromCn;
+    this.setData({
+      cityFrom:this.data.cityTo,
+      cityFromCn:this.data.cityToCn
+    })
+    app.data.cityFrom=this.data.cityTo;
+    app.data.cityFromCn=this.data.cityToCn;
+    this.setData({
+      cityTo:str1,
+      cityToCn:str2
+    })
+    app.data.cityTo=str1;
+    app.data.cityToCn=str2;
+  },
   switchToCode:function(){
     this.setData({
       curSel:'bycode'

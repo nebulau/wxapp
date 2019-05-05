@@ -18,6 +18,8 @@
       <view class='fromInput' data-op='start' bindtap='toAirpicker'>从: {{cityFromCn}}</view>
     </view>
 
+    <image class='arrow' bindtap='reverse' src='../../imgs/arrow.png'></image>
+
     <view class="cityto">
       <!-- <input class='fromInput' bindinput="bindToInput" placeholder="To:"  /> -->
       <view class='fromInput' data-op='end' bindtap='toAirpicker'>至: {{cityToCn}}</view>

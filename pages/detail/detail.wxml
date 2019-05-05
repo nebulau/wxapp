@@ -51,7 +51,9 @@ pre_fligt:"前序航班暂未到达"
         </block>
         <block wx:else>
           <text>天气: </text>
-          <text style='color:#1b65ce;'>{{value[0]}}, {{value[1]}}</text>
+          <text style='color:#1b65ce;'>{{value[0]}}</text>
+          <text>\n空气质量: </text>
+          <text style='color:#1b65ce;'>{{value[1]}}</text>
           <text>\n机场流量: </text>
           <text style='color:#1b65ce;'>{{value[2]}}</text>
         </block>

@@ -3,17 +3,20 @@
   height: 400rpx;
 }
 .cityfrom{
-  margin-left: 0;
+  margin-right: 10rpx;
   float:left;
   /* height: 60px; */
-  width: 45%;
+  width: 40%;
 }
-
+.arrow {
+  height: 40rpx;
+  width: 40rpx;
+}
 .cityto{
-  margin-right: 0;
+  margin-left: 10rpx;
   float: right;
   /* height: 60px; */
-  width: 45%;
+  width: 40%;
 }
 .fromInput {
   overflow: hidden;
