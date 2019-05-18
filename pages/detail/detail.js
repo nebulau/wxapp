@@ -28,6 +28,7 @@ Page({
         _this.setData({
           detailInfo:res.data,
         });
+        console.log(typeof res.data.airp_datas)
       }
     });
   },

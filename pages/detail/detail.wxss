@@ -15,6 +15,7 @@ page {
   box-shadow: 4px 1px 1px #cccccc;
   margin: 8px;
   margin-top: 40rpx;
+  margin-bottom: 40rpx;
   position: relative;
   padding: 5rpx;
 }
@@ -55,6 +56,10 @@ page {
   align-items: center;
   justify-content: center;
 }
+/* .pair {
+  display: flex;
+  flex-flow: column wrap;
+} */
 .airport {
   background-color: #eeeeee;
   margin: 30rpx;
@@ -65,7 +70,7 @@ page {
     background-color: #ffffff;
     box-shadow: 4px 1px 1px #cccccc;
     margin: 8px;
-    margin-top: 40rpx;
+    margin-bottom: 30rpx;
     position: relative;
     padding: 5rpx;
     padding-left: 35rpx;

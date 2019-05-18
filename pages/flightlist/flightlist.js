@@ -121,43 +121,54 @@ Page({
       url: '../detail/detail',
     })
   },1000),
-  setFocus: function(e) {
+  setFocus: utils.throttle(function(e) {
+    var _this = this;
     if (!app.data.isLoggedIn) {
       wx.showToast({
         title: '请您先登录',
         icon: 'loading',
         duration: 200
       })
+      return;
     }
-    else {
-      wx.request({
-        url: 'http://114.115.134.119:5000/beta/focus',
-        data: {
-          username:app.data.username,
-          token:app.data.token,
-          flightCode:e.target.dataset.flight,
-          date: this.data.date.replace(/-/g, '')
-        },
-        method: "POST",
-        header: {
-          'content-type': 'application/json'
-        },
-        success(res){
-          if(res.data.status=='success!'){
-            wx.showModal({
-              title: '关注成功',
-              content: '已添加至您的关注列表',
-              showCancel: false,
-            })
-          }else {
-            wx.showModal({
-              title: '关注失败',
-              content: '您可能已关注此航班',
-              showCancel: false,
-            })
+    wx.showActionSheet({
+      itemList: ['作为乘机人关注', '作为送机人关注', '作为接机人关注'],
+      success(res) {
+        console.log(res.tapIndex)
+        var identity = res.tapIndex;
+        wx.request({
+          url: 'http://114.115.134.119:5000/beta/focus',
+          data: {
+            username: app.data.username,
+            token: app.data.token,
+            flightCode: e.target.dataset.flight,
+            date: _this.data.date.replace(/-/g, ''),
+            identity: identity
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/json'
+          },
+          success(res) {
+            if (res.data.status == 'success!') {
+              wx.showModal({
+                title: '关注成功',
+                content: '已添加至您的关注列表',
+                showCancel: false,
+              })
+            } else {
+              wx.showModal({
+                title: '关注失败',
+                content: '您可能已关注此航班',
+                showCancel: false,
+              })
+            }
           }
-        }
-      })
-    }
-  }
+        })
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
+  }, 1000)
 })

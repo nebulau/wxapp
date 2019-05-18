@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.6",
 	"appid": "wxbe884281d74a836f",
-	"projectname": "Workspace",
+	"projectname": "wxapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
