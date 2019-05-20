@@ -57,9 +57,14 @@ var validateEmail = function (email) {
   var reg = new RegExp('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$');
   return reg.test(email)
 }
+var validateNamePwd = function (str) {
+  var reg = new RegExp(/^[a-zA-Z0-9_-]{4,16}$/);
+  return reg.test(str)
+}
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
   throttle:throttle,
-  validateEmail:validateEmail
+  validateEmail:validateEmail,
+  validateNamePwd:validateNamePwd
 }

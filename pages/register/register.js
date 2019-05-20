@@ -105,6 +105,22 @@ Page({
       })
       return;
     }
+    if(!utils.validateNamePwd(this.data.username)){
+      wx.showModal({
+        title: '账号不合法',
+        content: '请您重新输入',
+        showCancel: false,
+      })
+      return;
+    }
+    if(!utils.validateNamePwd(this.data.password)){
+      wx.showModal({
+        title: '密码不合法',
+        content: '请您重新输入',
+        showCancel: false,
+      })
+      return;
+    }
     if(this.data.username.length>13||this.data.username.length<6){
       wx.showModal({
         title: '账号不合法',
@@ -133,19 +149,23 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
+        console.log(res.data)
         if(res.data.status=='success!'){
           wx.showModal({
             title: '请您前往邮箱激活',
             content: '已为您跳转至登录页面',
             showCancel: false,
           })
-          wx.switchTab({
-            url: '../user/user',
+          // wx.switchTab({
+          //   url: '../user/user',
+          // })
+          wx.navigateBack({
+            delta:1
           })
         }else {
           wx.showModal({
             title: '注册失败',
-            content: '用户名已被占用',
+            content: '可能原因：用户名已被占用、邮箱不能接收邮件',
             showCancel: false,
           })
         }

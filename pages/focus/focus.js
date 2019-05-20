@@ -128,5 +128,11 @@ Page({
       }
     })
       
+  },1000),
+  toFlightList: utils.throttle(function(e){
+    wx.navigateTo({
+      url: '../flightlist/flightlist?op=1&flightCode=' + e.target.dataset.code +
+        '&cityFrom=' + '' + '&cityTo=' + '' + '&date=' + e.target.dataset.date,
+    })
   },1000)
 })

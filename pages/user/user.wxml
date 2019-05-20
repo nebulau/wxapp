@@ -7,7 +7,7 @@
 </view>
 <view class='container' style='font-size:30rpx;margin-bottom:50rpx;' wx:else>
   未登录?
-  <text style='color:white;' bindtap='toLogin'>点击登录</text>
+  <text style='color:royalblue;' bindtap='toLogin'>点击登录</text>
 </view>
 <view class='container'>
   <button class='btn' bindtap='toUserInfo'>个人信息</button>

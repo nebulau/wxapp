@@ -1,9 +1,9 @@
 <!--pages/attension/attension.wxml-->
 <view wx:if='{{notempty}}'>
   <view wx:for='{{focuslist}}' wx:key='{{index}}' class='itembox'>
-    <view class='focusitem'>
-      <text>航班: {{item.flightCode}}</text>
-      <text>日期: {{item.date}}</text>
+    <view class='focusitem' data-code='{{item.flightCode}}' data-date='{{item.date}}' catchtap='toFlightList'>
+      <text data-code='{{item.flightCode}}' data-date='{{item.date}}' bindtap='toFlightList'>航班: {{item.flightCode}}</text>
+      <text data-code='{{item.flightCode}}' data-date='{{item.date}}' bindtap='toFlightList'>日期: {{item.date}}</text>
     </view>
     <view class='defocus' data-flight='{{item.flightCode}}' data-date='{{item.date}}' bindtap='deFocus'>
       <text data-flight='{{item.flightCode}}' data-date='{{item.date}}' bindtap='deFocus'>取消\n关注</text>

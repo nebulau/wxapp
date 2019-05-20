@@ -1,6 +1,6 @@
 /* pages/index0/index0.wxss */
 .blank {
-  height: 400rpx;
+  height: 40%;
 }
 .btn {
   margin-top: 30rpx;

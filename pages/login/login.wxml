@@ -12,7 +12,7 @@
 	<button bindtap='logIn' class='btn'>登录</button>
 </view>
 <view class="register">
-	<text style='font-size: 26rpx;'>没有账号? </text>
-  <navigator style='font-size: 30rpx;display: inline-block;' url="../register/register" hover-class="none">
-  立即注册</navigator>
+	<text style='font-size: 26rpx;color:black;'>没有账号? </text>
+  <navigator style='font-size: 30rpx;display: inline-block;color:royalblue;' url="../register/register" hover-class="none">
+  现在注册</navigator>
 </view>

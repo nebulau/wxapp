@@ -3,5 +3,8 @@
 
 
 <view class='box'>
+  <view wx:if='{{!(email.length==0)}}' style='font-size:30rpx;'>
+  注册邮箱: {{email}}
+  </view>
   <button class='btn' bindtap='changePwd'>修改密码</button>
 </view>

@@ -6,16 +6,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username:''
+    username:'',
+    token:'',
+    email:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this=this;
     this.setData({
-      username:app.data.username
+      username:app.data.username,
+      token:app.data.token
     })
+    wx.request({
+      url: 'http://114.115.134.119:5000/beta/getUserInfo',
+      data: {
+        username: this.data.username,
+        token:this.data.token
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res){
+        if(res.data.email){
+          _this.setData({
+            email:res.data.email
+          })
+        }
+        else{
+          return;
+        }
+      }
+    })
+    
   },
 
   /**

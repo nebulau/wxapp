@@ -158,8 +158,8 @@ Page({
               })
             } else {
               wx.showModal({
-                title: '关注失败',
-                content: '您可能已关注此航班',
+                title: '关注成功',
+                content: '您之前已关注此航班',
                 showCancel: false,
               })
             }
