@@ -12,6 +12,7 @@ plane_age:"11.3年"
 plane_type:"BOEING737-800 WINGLETS"
 pre_fligt:"前序航班暂未到达"
  -->
+ <block wx:if='{{!emptyres}}'>
 <view wx:if='{{detailInfo}}'>
   <view class='flightinfocard'>
     <view class='corpandstatus'>
@@ -42,22 +43,22 @@ pre_fligt:"前序航班暂未到达"
   </view>
 
   <view wx:for='{{detailInfo.airp_datas}}' wx:key='index' class='card'>
-    <view>机场: <text style='color:#1b65ce'>{{index}}</text> </view>
-    <view wx:for='{{item}}' wx:for-index='key' wx:for-item='value' wx:key='key' class='pairsbox'>
-      <view class='pair'>
+    <view class='airpname'><text>{{index}}</text> </view>
+    <view class='pairsbox'>
+      <block wx:for='{{item}}' wx:for-index='key' wx:for-item='value' wx:key='key' >
         <block wx:if="{{key!='weather'}}">
-          <text>{{key}}: </text>
-          <text style='color:#1b65ce;'>{{value}}</text>
+          <view class='pair'>
+            <text>{{key}}</text>
+            <text style='color:#1b65ce;'>{{value}}</text>
+          </view>
         </block>
-        <block wx:else>
-          <text>天气: </text>
-          <text style='color:#1b65ce;'>{{value[0]}}</text>
-          <text>\n空气质量: </text>
-          <text style='color:#1b65ce;'>{{value[1]}}</text>
-          <text>\n机场流量: </text>
-          <text style='color:#1b65ce;'>{{value[2]}}</text>
+        <block wx:if="{{key=='weather'}}">
+          <view class='weather'>
+            <text>{{value[0]}}, {{value[1]}}</text>
+            <text>{{value[2]}}</text>
+          </view>
         </block>
-      </view>
+      </block>
     </view>
   </view>
 </view>
@@ -66,3 +67,10 @@ pre_fligt:"前序航班暂未到达"
   <icon type="info" size="50"></icon>
   <text>请等待</text>
 </view>
+</block>
+<block wx:else>
+<view class='nofound'> 
+  <icon type="info" size="50"></icon>
+  <text>暂无航班详细信息</text>
+</view>
+</block>

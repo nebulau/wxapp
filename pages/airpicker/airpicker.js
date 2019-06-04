@@ -5141,7 +5141,6 @@ Page({
       SZZ: "什切青格勒尼欧",
       SHM: "Shirahama白滨",
       WSH: "Shirley, New YorkShirley",
-      SHH: "Shishmaref, Alaska希什马廖夫",
       SBW: "诗巫",
       FLZ: "实武牙",
       SSE: "SholapurSolapur",

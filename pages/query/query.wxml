@@ -12,17 +12,19 @@
   </view>
 </block>
 <block wx:else>
-  <view class='cityform'>
-    <view class="cityfrom">
-      <!-- <input class='fromInput' bindinput="bindFromInput" placeholder="From:"/> -->
-      <view class='fromInput' data-op='start' bindtap='toAirpicker'>从: {{cityFromCn}}</view>
-    </view>
+  <view class='form'>
+    <view class='cityform'>
+      <view class="cityfrom">
+        <!-- <input class='fromInput' bindinput="bindFromInput" placeholder="From:"/> -->
+        <view class='fromInput' data-op='start' bindtap='toAirpicker'>从: {{cityFromCn}}</view>
+      </view>
 
-    <image class='arrow' bindtap='reverse' src='../../imgs/arrow.png'></image>
+      <image class='arrow' bindtap='reverse' src='../../imgs/arrow.png'></image>
 
-    <view class="cityto">
-      <!-- <input class='fromInput' bindinput="bindToInput" placeholder="To:"  /> -->
-      <view class='fromInput' data-op='end' bindtap='toAirpicker'>至: {{cityToCn}}</view>
+      <view class="cityto">
+        <!-- <input class='fromInput' bindinput="bindToInput" placeholder="To:"  /> -->
+        <view class='fromInput' data-op='end' bindtap='toAirpicker'>至: {{cityToCn}}</view>
+      </view>
     </view>
   </view>
 </block>
@@ -32,8 +34,8 @@
     class="dataInput"
     mode="date"
     value="{{date}}"
-    start="2000-09-01"
-    end="2030-09-01"
+    start="{{firstdate}}"
+    end="{{lastdate}}"
     bindchange="bindDateChange"
   >
     <view class="picker">

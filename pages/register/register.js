@@ -138,7 +138,7 @@ Page({
       return;
     }
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/register',
+      url: 'http://39.107.74.159:5000/beta/register',
       data: {
         username: this.data.username,
         password: this.data.password,
@@ -156,12 +156,12 @@ Page({
             content: '已为您跳转至登录页面',
             showCancel: false,
           })
-          // wx.switchTab({
-          //   url: '../user/user',
-          // })
-          wx.navigateBack({
-            delta:1
+          wx.switchTab({
+            url: '../user/user',
           })
+          // wx.navigateBack({
+          //   delta:1
+          // })
         }else {
           wx.showModal({
             title: '注册失败',

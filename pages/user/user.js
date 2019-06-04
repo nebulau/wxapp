@@ -109,7 +109,7 @@ Page({
   logOut: function() {
     var _this=this;
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/logout',
+      url: 'http://39.107.74.159:5000/beta/logout',
       data: {
         username: this.data.username,
         token: this.data.token

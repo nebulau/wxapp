@@ -9,6 +9,8 @@ Page({
   data: {
     curSel:'bycode',
     date:'',
+    firstdate:'',
+    lastdate:'',
     cityFrom: '',
     cityTo: '',
     cityFromCn: '',
@@ -56,6 +58,15 @@ Page({
   },
   toFlightList: function () {
     if(this.data.curSel=='bycode'){
+      var reg = new RegExp(/^[a-zA-Z0-9_-]{3,10}$/);
+      if(!reg.test(this.data.flightCode)){
+        wx.showModal({
+          title: '航班号不正确',
+          content: '请您重新输入',
+          showCancel: false,
+        })
+        return;
+      }
       wx.navigateTo({
         url: '../flightlist/flightlist?op=1&flightCode=' + this.data.flightCode + 
         '&cityFrom=' + '' + '&cityTo=' + '' + '&date=' + this.data.date,
@@ -72,14 +83,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    var DATE = utils.formatDate(new Date());
+    var DATE=utils.formatDate(new Date());
+    if(this.data.date.length==0){
+      this.setData({
+        date:DATE
+      })
+    }
     this.setData({
       flightCode:'CA1234',
       cityFrom: app.data.cityFrom,
       cityFromCn: app.data.cityFromCn,
       cityTo: app.data.cityTo,
       cityToCn: app.data.cityToCn,
-      date: DATE,
+      firstdate:utils.firstDate(new Date()),
+      lastdate:utils.lastDate(new Date())
     });
     if (e.cityFrom) {
       app.data.cityFrom = e.cityFrom;
@@ -96,6 +113,8 @@ Page({
         cityToCn: app.data.cityToCn
       })
     }
+    console.log(this.data.firstdate);
+    console.log(this.data.lastdate);
   },
   toAirpicker: utils.throttle(function (event) {
     console.log('choose ' + event.target.dataset.op);
@@ -115,12 +134,16 @@ Page({
    */
   onShow: function (e) {
     var DATE = utils.formatDate(new Date());
+    if (this.data.date.length == 0) {
+      this.setData({
+        date: DATE
+      })
+    }
     this.setData({
       cityFrom: app.data.cityFrom,
       cityFromCn: app.data.cityFromCn,
       cityTo: app.data.cityTo,
-      cityToCn: app.data.cityToCn,
-      date: DATE,
+      cityToCn: app.data.cityToCn
     });
   },
 

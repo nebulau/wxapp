@@ -35,8 +35,9 @@ Page({
       wx.hideLoading()
     }, 1000);
     
+    console.log(this.data)
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/byFlightNumber',
+      url: 'http://39.107.74.159:5000/beta/byFlightNumber',
       data: {
         op: parseInt(this.data.op),
         flightCode: this.data.flightCode,
@@ -49,6 +50,7 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
+        console.log(res.data)
         if (res.data.length!=0) {
           _this.setData({
             list: res.data
@@ -124,10 +126,10 @@ Page({
   setFocus: utils.throttle(function(e) {
     var _this = this;
     if (!app.data.isLoggedIn) {
-      wx.showToast({
-        title: '请您先登录',
-        icon: 'loading',
-        duration: 200
+      wx.showModal({
+        title: '请您登录',
+        content: '未登录状态不能关注航班',
+        showCancel: false,
       })
       return;
     }
@@ -137,7 +139,7 @@ Page({
         console.log(res.tapIndex)
         var identity = res.tapIndex;
         wx.request({
-          url: 'http://114.115.134.119:5000/beta/focus',
+          url: 'http://39.107.74.159:5000/beta/focus',
           data: {
             username: app.data.username,
             token: app.data.token,
@@ -158,8 +160,8 @@ Page({
               })
             } else {
               wx.showModal({
-                title: '关注成功',
-                content: '您之前已关注此航班',
+                title: '关注失败',
+                content: '您之前可能已关注此航班',
                 showCancel: false,
               })
             }

@@ -35,6 +35,36 @@ const formatDate = date => {
   const day = date.getDate()
   return [year, month, day].map(formatNumber).join('-')
 }
+const firstDate = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  var y=year;
+  var m=month;
+  var d=day;
+  if(month-1<1){
+    y=year-1;
+    m=month+11;
+  }else{
+    m=month-1;
+  }
+  return [year, month, day].map(formatNumber).join('-')
+}
+const lastDate = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  var y = year;
+  var m = month;
+  var d = day;
+  if (month + 6 > 12) {
+    y = year + 1;
+    m = month - 6;
+  } else {
+    m = month + 6;
+  }
+  return [y, m, d].map(formatNumber).join('-')
+}
 
 const formatNumber = n => {
   n = n.toString()
@@ -58,12 +88,14 @@ var validateEmail = function (email) {
   return reg.test(email)
 }
 var validateNamePwd = function (str) {
-  var reg = new RegExp(/^[a-zA-Z0-9_-]{4,16}$/);
+  var reg = new RegExp(/^[a-zA-Z0-9_-]{6,13}$/);
   return reg.test(str)
 }
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
+  firstDate:firstDate,
+  lastDate:lastDate,
   throttle:throttle,
   validateEmail:validateEmail,
   validateNamePwd:validateNamePwd

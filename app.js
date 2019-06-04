@@ -9,7 +9,8 @@ App({
     cityTo: 'PVG',
     cityFromCn: '旧金山',
     cityToCn: '上海浦东',
-    focuslist: []
+    focuslist: [],
+    base_url:'39.107.74.159'
   },
   onLaunch(options) {
     // Do something initial when launch.

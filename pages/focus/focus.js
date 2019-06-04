@@ -23,7 +23,7 @@ Page({
     });
     var _this = this;
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/getFocusedFlights',
+      url: 'http://39.107.74.159:5000/beta/getFocusedFlights',
       data: {
         username:this.data.username,
         token:this.data.token
@@ -33,6 +33,7 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
+        console.log(res.data)
         _this.setData({
           focuslist: res.data,
         });
@@ -106,7 +107,7 @@ Page({
       success(res){
         if(res.confirm){
           wx.request({
-            url: 'http://114.115.134.119:5000/beta/unfocus',
+            url: 'http://39.107.74.159:5000/beta/unfocus',
             data: {
               username: app.data.username,
               token: app.data.token,

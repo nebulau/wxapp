@@ -21,7 +21,7 @@ Page({
       token:app.data.token
     })
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/getUserInfo',
+      url: 'http://39.107.74.159:5000/beta/getUserInfo',
       data: {
         username: this.data.username,
         token:this.data.token
@@ -96,7 +96,7 @@ Page({
     var _this=this;
     console.log(this.data.username);
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/modifyPasswordEmail',
+      url: 'http://39.107.74.159:5000/beta/modifyPasswordEmail',
       data: {
         username: this.data.username,
       },

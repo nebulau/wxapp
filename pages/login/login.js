@@ -79,7 +79,7 @@ Page({
   logIn: function() {
     var _this=this;
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/login',
+      url: 'http://39.107.74.159:5000/beta/login',
       data: {
         username: this.data.username,
         password: this.data.password
@@ -107,7 +107,7 @@ Page({
           });
           //请求获取关注列表
           wx.request({
-            url: 'http://114.115.134.119:5000/beta/getFocusedFlights',
+            url: 'http://39.107.74.159:5000/beta/getFocusedFlights',
             data: {
               username: app.data.username,
               token: app.data.token

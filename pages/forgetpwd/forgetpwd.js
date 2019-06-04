@@ -70,16 +70,16 @@ Page({
     });
   },
   findPwd: utils.throttle(function() {
-    if(this.data.username.length==0){
+    if(!utils.validateNamePwd(this.data.username)){
       wx.showModal({
-        title: '账号输入不正确',
-        content: '请您重新输入',
+        title: '账号格式不正确',
+        content: '请您检查账号并重新输入',
         showCancel: false,
       })
       return;
     }
     wx.request({
-      url: 'http://114.115.134.119:5000/beta/modifyPasswordEmail',
+      url: 'http://39.107.74.159:5000/beta/modifyPasswordEmail',
       data: {
         username: this.data.username,
       },
@@ -88,14 +88,23 @@ Page({
         'content-type': 'application/json'
       },
       success(res){
-        wx.showModal({
-          title: '已发送邮件',
-          content: '请您前往邮箱点击链接找回密码',
-          showCancel: false,
-        })
-        wx.switchTab({
-          url: '../user/user',
-        })
+        console.log(res.data);
+        if(res.data.status=='success!'){
+          wx.showModal({
+            title: '已发送邮件',
+            content: '请您前往邮箱点击链接找回密码',
+            showCancel: false,
+          })
+          wx.switchTab({
+            url: '../user/user',
+          })
+        }else {
+          wx.showModal({
+            title: '账号不存在',
+            content: '请您检查账号并重新输入',
+            showCancel: false,
+          })
+        }
       }
     })
   },1000)
